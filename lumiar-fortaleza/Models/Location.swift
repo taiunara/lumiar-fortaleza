@@ -6,13 +6,27 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Location: Identifiable {
-    let id              = UUID()
-    let name            : String
-    let Title           : String
-    let Address         : String
-    let Description     : String
-    let Category        : LocationType
-    let Neighbourhood   : Neighbourhood
+@Model
+class Location {
+    var name            : String
+    var title           : String
+    var address         : String
+    var history         : String
+    var category        : LocationType
+    var neighbourhood   : Neighbourhood
+    var visitTimeMin    : Int
+    var visitTimeHour   : Int
+    
+    init(name: String, title: String, address: String, history: String, category: LocationType, neighbourhood: Neighbourhood, visitTimeMin: Int, visitTimeHour: Int) {
+        self.name = name
+        self.title = title
+        self.address = address
+        self.history = history
+        self.category = category
+        self.neighbourhood = neighbourhood
+        self.visitTimeMin = visitTimeMin
+        self.visitTimeHour = visitTimeHour
+    }
 }

@@ -6,8 +6,15 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Neighbourhood: Identifiable {
-    var id = UUID()
+@Model
+class Neighbourhood {
     var name: String
+    var locations: [Location]
+    
+    init(name: String, locations: [Location]) {
+        self.name = name
+        self.locations = locations
+    }
 }
