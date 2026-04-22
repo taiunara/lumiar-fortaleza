@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct lumiar_fortalezaApp: App {
+struct LumiarFortalezaApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
