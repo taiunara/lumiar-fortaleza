@@ -10,6 +10,8 @@ import SwiftUI
 struct LocationView: View {
     var body: some View {
         @Environment(\.dismiss) var dismiss
+        @Environment(\.openURL) var openURL
+        
         
         let neighbourhood = Neighbourhood(name: "Serviluz", locations: [])
         
@@ -26,61 +28,110 @@ struct LocationView: View {
         
         
         NavigationStack {
-            HStack{
-                Image(.imageTest)
-                    .resizable()
-                    .scaledToFit()
-
-            }
-            .navigationTitle(location.name)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    // TODO: Implementar função de retorno
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        HStack {
-                            Image(systemName: "chevron.backward")
+            
+            VStack(alignment: .center , spacing: 20) {
+                
+                HStack(alignment: .center, spacing: 10){
+                    Image(.imageTest)
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(15)
+                        .clipped()
+                }
+                .frame(maxHeight: .infinity, alignment: .leading)
+                .cornerRadius(15)
+                .navigationTitle(location.name)
+                
+                
+                
+                VStack {
+                    
+                    HStack(alignment: .center, spacing: 10) {
+                        Button(action: {
+                            openURL(URL(string: "https://maps.app.goo.gl/HccYRS8MixnHh2sZ6")!)
+                        }) {
+                            VStack(alignment: .center, spacing: 0) {
+                                Image(systemName: "arrow.trianglehead.turn.up.right.diamond.fill")
+                                    .foregroundColor(.white)
+                                Text("Rotas")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.white)
+                            }
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 5)
+                            .frame(maxWidth: .infinity, minHeight: 53, maxHeight: 61, alignment: .center)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                        }
+                        
+                        
+                        VStack{
+                            Text("Distância")
+                            Label {
+                                Text("1.5km")
+                            } icon: {
+                                Image(systemName: "point.topleft.down.to.point.bottomright.curvepath.fill")
+                            }
+                            
+                        }
+                        .padding(5)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .cornerRadius(10)
+                        
+                    }
+                    .frame(maxWidth: .infinity, minHeight: 61, maxHeight: 61, alignment: .center)
+                    
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        // TODO: Implementar função de retorno
+                        Button(action: {
+                            dismiss()
+                        }) {
+                            HStack {
+                                Image(systemName: "chevron.backward")
+                            }
                         }
                     }
                 }
-            }
-
-            VStack {
-                HStack {
-                    Text(location.address)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                    
-                    Spacer()
-                    if location.visitTimeHour == 0 {
-                        Text("\(location.visitTimeMin)min")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                    else{
-                        Text("\(location.visitTimeHour)h \(location.visitTimeMin)min")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                }
                 
-                Spacer()
                 Text(location.title)
                     .font(.title2)
                     .fontWeight(.semibold)
                 
-                    
-                Spacer()
                 Text(location.history)
             }
-            .padding(20)
-            
+            .padding(0)
+//            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .safeAreaPadding(.horizontal, 20)
         }
     }
-        
 }
+        
+
 
 #Preview {
     LocationView()
 }
+
+//                    Button("Rotas", systemImage:"arrow.trianglehead.turn.up.right.diamond.fill") {
+//                                openURL(URL(string: "https://maps.app.goo.gl/HccYRS8MixnHh2sZ6")!)
+//                            }
+//                    .foregroundColor(.white)
+//                    .padding()
+//
+//
+//                        }
+//                .background(Color.blue)
+//                    .padding()
+
+//                    if location.visitTimeHour == 0 {
+//                        Text("\(location.visitTimeMin)min")
+//                            .font(.subheadline)
+//                            .foregroundColor(.secondary)
+//                    }
+//                    else{
+//                        Text("\(location.visitTimeHour)h \(location.visitTimeMin)min")
+//                            .font(.subheadline)
+//                            .foregroundColor(.secondary)
+//                    }

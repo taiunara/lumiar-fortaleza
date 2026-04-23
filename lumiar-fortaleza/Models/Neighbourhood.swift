@@ -10,8 +10,8 @@ import SwiftData
 
 @Model
 class Neighbourhood {
-    var name: String
-    var locations: [Location]?
+    var name        : String
+    var locations   : [Location]?
     
     init(name: String, locations: [Location]) {
         self.name = name

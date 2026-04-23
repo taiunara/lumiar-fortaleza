@@ -9,11 +9,11 @@ import SwiftData
 
 @Model
 class Roadmap {
-    var name: String
-    var locations: [Location]
-    var estimatedTimeMin: Int
-    var estimatedTimeHour: Int
-    var estimatedDistance: Float
+    var name                : String
+    var locations           : [Location]
+    var estimatedTimeMin    : Int
+    var estimatedTimeHour   : Int
+    var estimatedDistance   : Float
     
     init(name: String, locations: [Location], estimatedTimeMin: Int, estimatedTimeHour: Int, estimatedDistance: Float) {
         self.name = name
