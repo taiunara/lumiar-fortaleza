@@ -28,110 +28,89 @@ struct LocationView: View {
         
         
         NavigationStack {
-            
-            VStack(alignment: .center , spacing: 20) {
-                
-                HStack(alignment: .center, spacing: 10){
-                    Image(.imageTest)
-                        .resizable()
-                        .scaledToFit()
-                        .cornerRadius(15)
-                        .clipped()
-                }
-                .frame(maxHeight: .infinity, alignment: .leading)
-                .cornerRadius(15)
-                .navigationTitle(location.name)
-                
-                
-                
-                VStack {
+            ScrollView{
+                VStack(alignment: .center , spacing: 15) {
                     
-                    HStack(alignment: .center, spacing: 10) {
-                        Button(action: {
-                            openURL(URL(string: "https://maps.app.goo.gl/HccYRS8MixnHh2sZ6")!)
-                        }) {
-                            VStack(alignment: .center, spacing: 0) {
-                                Image(systemName: "arrow.trianglehead.turn.up.right.diamond.fill")
-                                    .foregroundColor(.white)
-                                Text("Rotas")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.white)
-                            }
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 5)
-                            .frame(maxWidth: .infinity, minHeight: 53, maxHeight: 61, alignment: .center)
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                        }
+                    // Carrosel de fotos
+                    HStack(alignment: .center, spacing: 10){
+                        Image(.imageTest)
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(15)
+                            .clipped()
+                    }
+                    .frame(maxHeight: .infinity, alignment: .leading)
+                    .cornerRadius(15)
+                    .navigationTitle(location.name)
+                    
+                    VStack {
                         
-                        
-                        VStack{
-                            Text("Distância")
-                            Label {
-                                Text("1.5km")
-                            } icon: {
-                                Image(systemName: "point.topleft.down.to.point.bottomright.curvepath.fill")
+                        // Botoes de rota e distância
+                        HStack(alignment: .center, spacing: 10) {
+                            Button(action: {
+                                openURL(URL(string: "https://maps.app.goo.gl/HccYRS8MixnHh2sZ6")!)
+                            }) {
+                                VStack(alignment: .center, spacing: 0) {
+                                    Image(systemName: "arrow.trianglehead.turn.up.right.diamond.fill")
+                                        .foregroundColor(.white)
+                                    Text("Rotas")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.white)
+                                }
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 5)
+                                .frame(maxWidth: .infinity, minHeight: 53, maxHeight: 61, alignment: .center)
+                                .background(Color.blue)
+                                .cornerRadius(10)
                             }
                             
+                            
+                            VStack{
+                                Text("Distância")
+                                Label {
+                                    Text("1.5km")
+                                } icon: {
+                                    Image(systemName: "point.topleft.down.to.point.bottomright.curvepath.fill")
+                                }
+                                
+                            }
+                            .padding(5)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .cornerRadius(10)
+                            
                         }
-                        .padding(5)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .cornerRadius(10)
+                        .frame(maxWidth: .infinity, minHeight: 61, maxHeight: 61, alignment: .center)
                         
                     }
-                    .frame(maxWidth: .infinity, minHeight: 61, maxHeight: 61, alignment: .center)
-                    
-                }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        // TODO: Implementar função de retorno
-                        Button(action: {
-                            dismiss()
-                        }) {
-                            HStack {
-                                Image(systemName: "chevron.backward")
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            // TODO: Implementar função de retorno
+                            Button(action: {
+                                dismiss()
+                            }) {
+                                HStack {
+                                    Image(systemName: "chevron.backward")
+                                }
                             }
                         }
                     }
+                    
+                    // Titulo e texto
+                    Text(location.title)
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                    Text(location.history)
+                    
                 }
-                
-                Text(location.title)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                
-                Text(location.history)
             }
             .padding(0)
-//            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .safeAreaPadding(.horizontal, 20)
+            
         }
     }
 }
-        
 
 
 #Preview {
     LocationView()
 }
-
-//                    Button("Rotas", systemImage:"arrow.trianglehead.turn.up.right.diamond.fill") {
-//                                openURL(URL(string: "https://maps.app.goo.gl/HccYRS8MixnHh2sZ6")!)
-//                            }
-//                    .foregroundColor(.white)
-//                    .padding()
-//
-//
-//                        }
-//                .background(Color.blue)
-//                    .padding()
-
-//                    if location.visitTimeHour == 0 {
-//                        Text("\(location.visitTimeMin)min")
-//                            .font(.subheadline)
-//                            .foregroundColor(.secondary)
-//                    }
-//                    else{
-//                        Text("\(location.visitTimeHour)h \(location.visitTimeMin)min")
-//                            .font(.subheadline)
-//                            .foregroundColor(.secondary)
-//                    }
