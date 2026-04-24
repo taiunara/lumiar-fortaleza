@@ -42,3 +42,14 @@ let location1 = Location(
     visitTimeHour: 0
 )
 
+let location2 = Location(
+    name: "Catedral Metropolitana de Fortaleza",
+    title: "Um símbolo de fé construído ao longo de gerações",
+    address: "R. Sobral - Centro, Fortaleza - CE, 60030-030",
+    history: "A Catedral Metropolitana de Fortaleza, dedicada a São José, é um dos principais marcos religiosos e arquitetônicos da cidade. Sua construção teve início em 1939 e foi concluída apenas em 1978, após décadas de trabalho e mobilização da comunidade.    Projetada pelo engenheiro francês George Mounier, a catedral apresenta um estilo inspirado no gótico, com grandes dimensões e capacidade para milhares de pessoas. Seus vitrais e estrutura imponente se destacam na paisagem urbana, refletindo a importância do espaço para a fé e a cultura local. Antes da construção atual, outras igrejas ocuparam o mesmo papel ao longo da história, sendo reconstruídas devido ao crescimento da cidade e a problemas estruturais. A catedral atual surge, portanto, como resultado de um longo processo de transformação e continuidade religiosa.  O interior abriga diferentes capelas, criptas e espaços de contemplação, além de elementos históricos que guardam a memória de líderes religiosos e da própria formação da Arquidiocese. Mais do que um templo, a catedral representa a dedicação de gerações que contribuíram para sua construção, tornando-se um símbolo vivo da identidade e da espiritualidade em Fortaleza.    Curiosidade:    A construção da catedral levou cerca de 39 anos para ser concluída, quase o mesmo tempo que separa gerações inteiras.",
+    category: LocationType.religiousLandmark,
+//    neighbourhood: neighbourhood,
+    visitTimeMin: 1,
+    visitTimeHour: 30
+)
+
