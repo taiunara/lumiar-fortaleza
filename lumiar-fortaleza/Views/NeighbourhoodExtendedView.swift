@@ -2,7 +2,7 @@
 //  LocationView.swift
 //  lumiar-fortaleza
 //
-//  Created by user on 24/04/26.
+//  Created by Tainara & Ulisses on 24/04/26.
 //
 
 import SwiftUI
@@ -12,14 +12,15 @@ struct NeighbourhoodExtendedView: View {
     var body: some View {
         
         List {
-            LocationExtendedCardView(location: location1)
+            Section {
+                LocationExtendedCard(location: location1)
+                LocationExtendedCard(location: location2)
+                LocationExtendedCard(location: location1)
+            }
                 .listRowSeparator(.hidden)
-            
-            LocationExtendedCardView(location: location1)
-                .listRowSeparator(.hidden)
+                .listRowBackground(Color.clear)
         }
         .listStyle(.plain)
-        .listRowSeparator(.hidden)
     }
 }
 
