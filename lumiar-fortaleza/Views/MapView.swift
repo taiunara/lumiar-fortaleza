@@ -15,8 +15,23 @@ struct MapView: View {
     @State var isPresented: Bool = true
     @State var searchText: String = ""
     
+    let markers = [
+            location1,
+            location2
+        ]
+    
     var body: some View {
-        Map()
+        Map{
+            ForEach(markers) { marker in
+                Annotation(location1.name, coordinate: marker.coordinates) {
+                    Image(.imageTest1)
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .cornerRadius(50)
+                        .scaledToFill()
+                }
+                        }
+        }
         .sheet(isPresented:  $isPresented) {
             NavigationStack {
                 HStack {
