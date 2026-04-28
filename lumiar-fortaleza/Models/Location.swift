@@ -21,12 +21,14 @@ class Location {
     var visitTimeHour   : Int
     var latitude        : Double
     var longitude       : Double
+    var comodities      : [Comodities]?
     
     var coordinates: CLLocationCoordinate2D{
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
     
-    init(name: String, title: String, address: String, history: String, category: LocationType, /*neighbourhood: Neighbourhood,*/ visitTimeMin: Int, visitTimeHour: Int, coordinates: CLLocationCoordinate2D) {
+    init(name: String, title: String, address: String, history: String, category: LocationType, /*neighbourhood: Neighbourhood,*/ visitTimeMin: Int, visitTimeHour: Int, coordinates: CLLocationCoordinate2D, comodities: [Comodities]) {
+
         self.name = name
         self.title = title
         self.address = address
@@ -37,6 +39,7 @@ class Location {
         self.visitTimeHour = visitTimeHour
         self.latitude = coordinates.latitude
         self.longitude = coordinates.longitude
+        self.comodities = comodities
     }
 }
 
@@ -49,7 +52,8 @@ let location1 = Location(
 //    neighbourhood: neighbourhood,
     visitTimeMin: 40,
     visitTimeHour: 0,
-    coordinates: CLLocationCoordinate2D(latitude: -3.7244, longitude: -38.5231)
+    coordinates: CLLocationCoordinate2D(latitude: -3.7244, longitude: -38.5231),
+    comodities: [ Comodities.bathroom, Comodities.park, Comodities.acessibility]
 )
 
 let location2 = Location(
@@ -61,6 +65,7 @@ let location2 = Location(
 //    neighbourhood: neighbourhood,
     visitTimeMin: 1,
     visitTimeHour: 30,
-    coordinates: CLLocationCoordinate2D(latitude: -3.7150, longitude: -38.5430)
+    coordinates: CLLocationCoordinate2D(latitude: -3.7150, longitude: -38.5430),
+    comodities: [ Comodities.bathroom, Comodities.park, Comodities.acessibility]
 )
 

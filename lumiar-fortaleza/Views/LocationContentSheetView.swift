@@ -64,10 +64,17 @@ struct LocationContentSheetView: View {
                     LocationView()
                 }
                 
+//  View de informações úteis
+                
+                UsefulInformation()
+                
+                ComoditiesView()
+
+                
             }
             .padding(.horizontal, 20)
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
+            .toolbar{
                 ToolbarItem(placement: .principal) {
                     VStack{
                         Text(location1.name).foregroundStyle(Color.black)
@@ -75,6 +82,9 @@ struct LocationContentSheetView: View {
                     }
                 }
             }
+            
+            //Componente Comodidades
+            
             
             Spacer()
         }
