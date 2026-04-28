@@ -13,6 +13,9 @@ import MapKit
 struct MapView: View {
 
     @State var isPresented: Bool = true
+    
+    @State var selected: Location?
+    
     @State var searchText: String = ""
     
     let markers = [
@@ -25,8 +28,9 @@ struct MapView: View {
     var body: some View {
         Map{
             ForEach(markers) { marker in
-                Annotation(location1.name, coordinate: marker.coordinates) {
+                Annotation(marker.name, coordinate: marker.coordinates) {
                     Button ( action: {
+                        selected = marker
                         currentPresentationDetent = .medium
                     }) {
                         Image(.imageTest1)
@@ -39,24 +43,37 @@ struct MapView: View {
                 }
                         }
         }
-        .sheet(isPresented:  $isPresented) {
+        .onChange(of: currentPresentationDetent) {
+            if currentPresentationDetent == .fraction(0.1) {
+                selected = nil
+            }
+        }
+        .sheet(isPresented: $isPresented) {
             NavigationStack {
                 HStack {
-                }.toolbar(content: {
-            
-                    ToolbarItem {
-                        Button {
-                            // Button actions here.
-                        } label: {
-                            Label("Mais", systemImage: "ellipsis")
-                                .fontWeight(.medium)
-                        }
-//                        .buttonStyle(.glassProminent)
-//                        .tint(.black.opacity(0.8))
-                        .glassEffect(.identity.interactive())
+                    if let selected {
+                        LocationContentSheetView()
+                    } else {
+                        
                     }
-                    
-                })
+                }
+//                HStack {
+//                    
+//                }.toolbar(content: {
+//            
+//                    ToolbarItem {
+//                        Button {
+//                            // Button actions here.
+//                        } label: {
+//                            Label("Mais", systemImage: "ellipsis")
+//                                .fontWeight(.medium)
+//                        }
+////                        .buttonStyle(.glassProminent)
+////                        .tint(.black.opacity(0.8))
+//                        .glassEffect(.identity.interactive())
+//                    }
+//                    
+//                })
             }
             .searchable(text: $searchText, placement: .automatic, prompt: "Buscar pontos")
                 .presentationDetents([.fraction(0.1), .medium,.large], selection: $currentPresentationDetent)
