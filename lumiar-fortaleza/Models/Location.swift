@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import MapKit
 
 @Model
 class Location {
@@ -18,8 +19,14 @@ class Location {
 //    var neighbourhood   : Neighbourhood?
     var visitTimeMin    : Int
     var visitTimeHour   : Int
+    var latitude        : Double
+    var longitude       : Double
     
-    init(name: String, title: String, address: String, history: String, category: LocationType, /*neighbourhood: Neighbourhood,*/ visitTimeMin: Int, visitTimeHour: Int) {
+    var coordinates: CLLocationCoordinate2D{
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    
+    init(name: String, title: String, address: String, history: String, category: LocationType, /*neighbourhood: Neighbourhood,*/ visitTimeMin: Int, visitTimeHour: Int, coordinates: CLLocationCoordinate2D) {
         self.name = name
         self.title = title
         self.address = address
@@ -28,6 +35,8 @@ class Location {
 //        self.neighbourhood = neighbourhood
         self.visitTimeMin = visitTimeMin
         self.visitTimeHour = visitTimeHour
+        self.latitude = coordinates.latitude
+        self.longitude = coordinates.longitude
     }
 }
 
@@ -39,7 +48,8 @@ let location1 = Location(
     category: LocationType.historicalLandmark,
 //    neighbourhood: neighbourhood,
     visitTimeMin: 40,
-    visitTimeHour: 0
+    visitTimeHour: 0,
+    coordinates: CLLocationCoordinate2D(latitude: -3.7244, longitude: -38.5231)
 )
 
 let location2 = Location(
@@ -50,6 +60,7 @@ let location2 = Location(
     category: LocationType.religiousLandmark,
 //    neighbourhood: neighbourhood,
     visitTimeMin: 1,
-    visitTimeHour: 30
+    visitTimeHour: 30,
+    coordinates: CLLocationCoordinate2D(latitude: -3.7150, longitude: -38.5430)
 )
 

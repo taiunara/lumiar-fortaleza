@@ -17,5 +17,4 @@ enum LocationType: String, CaseIterable, Codable {
     case historicalLandmark = "Marco Histórico"
     case touristAttraction = "Atração Turística"
     case religiousLandmark = "Monumento Religioso"
-    
 }

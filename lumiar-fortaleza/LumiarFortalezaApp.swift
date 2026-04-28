@@ -12,6 +12,7 @@ struct LumiarFortalezaApp: App {
     var body: some Scene {
         WindowGroup {
             LocationSheetView()
+
         }
     }
 }
