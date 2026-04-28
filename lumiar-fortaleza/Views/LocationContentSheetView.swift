@@ -93,6 +93,23 @@ struct LocationContentSheetView: View {
     
 }
 
+//func decode(_ file: String) -> [Person] {
+//        guard let url = Bundle.main.url(forResource: file, withExtension: nil) else {
+//            fatalError("Faliled to locate \(file) in bundle")
+//        }
+//        
+//        guard let data = try? Data(contentsOf: url) else {
+//            fatalError("Failed to load file from \(file) from bundle")
+//        }
+//        
+//        let decoder = JSONDecoder()
+//        
+//        guard let loadedFile = try? decoder.decode([Person].self, from: data) else {
+//            fatalError("Failed to decode \(file) from bundle")
+//        }
+//        
+//        return loadedFile
+//    }
 #Preview {
     LocationContentSheetView()
 }
