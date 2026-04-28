@@ -20,15 +20,22 @@ struct MapView: View {
             location2
         ]
     
+    @State var currentPresentationDetent: PresentationDetent = .fraction(0.1)
+    
     var body: some View {
         Map{
             ForEach(markers) { marker in
                 Annotation(location1.name, coordinate: marker.coordinates) {
-                    Image(.imageTest1)
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                        .cornerRadius(50)
-                        .scaledToFill()
+                    Button ( action: {
+                        currentPresentationDetent = .medium
+                    }) {
+                        Image(.imageTest1)
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .cornerRadius(50)
+                            .scaledToFill()
+                    }
+
                 }
                         }
         }
@@ -52,7 +59,7 @@ struct MapView: View {
                 })
             }
             .searchable(text: $searchText, placement: .automatic, prompt: "Buscar pontos")
-                .presentationDetents([.fraction(0.1), .medium,.large])
+                .presentationDetents([.fraction(0.1), .medium,.large], selection: $currentPresentationDetent)
             
                 .interactiveDismissDisabled(true)
                 .presentationBackgroundInteraction(.enabled(upThrough: .medium))
