@@ -11,6 +11,7 @@ import SwiftUI
 struct LocationContentSheetView: View {
     
     @State private var isExpanded: Bool = false
+    @State var point = [Point]()
     
     var body: some View {
         
@@ -84,8 +85,6 @@ struct LocationContentSheetView: View {
             }
             
             //Componente Comodidades
-            
-            
             Spacer()
         }
         
@@ -93,7 +92,10 @@ struct LocationContentSheetView: View {
     
 }
 
-//func decode(_ file: String) -> [Person] {
+
+// Teste leitura de Json (Falar com Raíssa)
+
+//func decode(_ file: String) -> [Point] {
 //        guard let url = Bundle.main.url(forResource: file, withExtension: nil) else {
 //            fatalError("Faliled to locate \(file) in bundle")
 //        }
@@ -104,12 +106,30 @@ struct LocationContentSheetView: View {
 //        
 //        let decoder = JSONDecoder()
 //        
-//        guard let loadedFile = try? decoder.decode([Person].self, from: data) else {
+//        guard let loadedFile = try? decoder.decode([Point].self, from: data) else {
 //            fatalError("Failed to decode \(file) from bundle")
 //        }
 //        
 //        return loadedFile
 //    }
+
+func loadPoints() -> [Point]? {
+    guard let url = Bundle.main.url(forResource: "Points", withExtension: "json"),
+          let data = try? Data(contentsOf: url) else {
+        print("Erro ao carregar arquivo JSON")
+        return nil
+    }
+    
+    do {
+        let pontos = try JSONDecoder().decode([Point].self, from: data)
+        return pontos
+    } catch {
+        print("Erro ao decodificar JSON: \(error)")
+        return nil
+    }
+}
+
+
 #Preview {
     LocationContentSheetView()
 }
