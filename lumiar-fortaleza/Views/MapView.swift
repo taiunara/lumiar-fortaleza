@@ -11,7 +11,7 @@ import MapKit
 
 
 struct MapView: View {
-
+    
     @State var isPresented: Bool = true
     
     @State var selected: Location?
@@ -19,9 +19,9 @@ struct MapView: View {
     @State var searchText: String = ""
     
     let markers = [
-            location1,
-            location2
-        ]
+        location1,
+        location2
+    ]
     
     @State var currentPresentationDetent: PresentationDetent = .fraction(0.1)
     
@@ -39,9 +39,9 @@ struct MapView: View {
                             .cornerRadius(50)
                             .scaledToFill()
                     }
-
+                    
                 }
-                        }
+            }
         }
         .onChange(of: currentPresentationDetent) {
             if currentPresentationDetent == .fraction(0.1) {
@@ -54,32 +54,36 @@ struct MapView: View {
                     if let selected {
                         LocationContentSheetView()
                     } else {
+//                        HStack {
+//                            
+//                        }.toolbar(content: {
+//                            
+//                            ToolbarItem {
+//                                Button {
+//                                    // Button actions here.
+//                                } label: {
+//                                    Label("Mais", systemImage: "ellipsis")
+//                                        .fontWeight(.medium)
+//                                }
+//                                //                        .buttonStyle(.glassProminent)
+//                                //                        .tint(.black.opacity(0.8))
+//                                .glassEffect(.identity.interactive())
+//                            }
+//                            
+//                        })
                         
                     }
                 }
-//                HStack {
-//                    
-//                }.toolbar(content: {
-//            
-//                    ToolbarItem {
-//                        Button {
-//                            // Button actions here.
-//                        } label: {
-//                            Label("Mais", systemImage: "ellipsis")
-//                                .fontWeight(.medium)
-//                        }
-////                        .buttonStyle(.glassProminent)
-////                        .tint(.black.opacity(0.8))
-//                        .glassEffect(.identity.interactive())
-//                    }
-//                    
-//                })
             }
             .searchable(text: $searchText, placement: .automatic, prompt: "Buscar pontos")
-                .presentationDetents([.fraction(0.1), .medium,.large], selection: $currentPresentationDetent)
+            .presentationDetents([.fraction(0.1), .medium,.large], selection: $currentPresentationDetent)
             
-                .interactiveDismissDisabled(true)
-                .presentationBackgroundInteraction(.enabled(upThrough: .medium))
+            .interactiveDismissDisabled(true)
+            .presentationBackgroundInteraction(.enabled(upThrough: .medium))
+        }
+        .ignoresSafeArea()
+        .onTapGesture {
+            currentPresentationDetent = .fraction(0.1)
         }
     }
 }
