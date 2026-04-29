@@ -49,7 +49,7 @@ let location1 = Location(
 //    neighbourhood: neighbourhood,
     visitTimeMin: 40,
     visitTimeHour: 0,
-    coordinates: CLLocationCoordinate2D(latitude: -3.7244, longitude: -38.5231)
+    coordinates: CLLocationCoordinate2D(latitude: -3.707803, longitude: -38.470405)
 )
 
 let location2 = Location(
