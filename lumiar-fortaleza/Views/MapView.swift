@@ -75,7 +75,8 @@ struct MapView: View {
                     }
                 }
             }
-            .searchable(text: $searchText, placement: .automatic, prompt: "Buscar pontos")
+            .padding(.top, 10)
+            .searchable(text: $searchText, placement: .toolbarPrincipal, prompt: "Buscar pontos")
             .presentationDetents([.fraction(0.1), .medium,.large], selection: $currentPresentationDetent)
             
             .interactiveDismissDisabled(true)
