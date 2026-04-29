@@ -2,7 +2,7 @@
 //  ExploreContentSheetView.swift
 //  lumiar-fortaleza
 //
-//  Created by User on 29/04/26.
+//  Created by Marcelo & Ulisses on 29/04/26.
 //
 
 import Foundation
@@ -18,22 +18,196 @@ struct ExploreContentSheetView: View {
             List {
                 Section("Sugestão do dia") {
                     HStack{
-                        Image(systemName: "pencil.circle.fill")
-                        NavigationLink(location2.name, destination: LocationView())
+                        Image(systemName: "pencil.circle.fill").font(.title)
+                        NavigationLink(destination: LocationView()) {
+                            VStack{
+                                HStack{
+                                    Text(location1.name)
+                                    Spacer()
+                                }
+                                HStack{
+                                    Label {
+                                        Text("1.5km")
+                                            .foregroundStyle(.gray)
+                                    } icon: {
+                                        Image(systemName: "location.fill")
+                                            .font(.caption)
+                                            .foregroundStyle(.gray)
+                                    }.labelIconToTitleSpacing(0)
+                                    
+                                    Spacer()
+                                }
+                            }
+                        }
                     }
+                    .frame(height: 40)
+                    
+                    
                 }
                 
                 Section("Próximos a você") {
                     HStack{
-                        Image(systemName: "pencil.circle.fill")
-                        NavigationLink(location1.name, destination: LocationView())
+                        Image(systemName: "pencil.circle.fill").font(.title)
+                        NavigationLink(destination: LocationView()) {
+                            VStack{
+                                HStack{
+                                    Text(location1.name)
+                                    Spacer()
+                                }
+                                HStack{
+                                    Label {
+                                        Text("1.5km")
+                                            .foregroundStyle(.gray)
+                                    } icon: {
+                                        Image(systemName: "location.fill")
+                                            .font(.caption)
+                                            .foregroundStyle(.gray)
+                                    }.labelIconToTitleSpacing(0)
+                                    
+                                    Spacer()
+                                }
+                            }
+                            
+                        }
                     }
+                    .frame(height: 40)
                     
                     HStack{
-                            Image(systemName: "pencil.circle.fill")
-                            NavigationLink(location2.name, destination: LocationView())
-                        
+                        Image(systemName: "pencil.circle.fill").font(.title)
+                        NavigationLink(destination: LocationView()) {
+                            VStack{
+                                HStack{
+                                    Text(location1.name)
+                                    Spacer()
+                                }
+                                HStack{
+                                    Label {
+                                        Text("1.5km")
+                                            .foregroundStyle(.gray)
+                                    } icon: {
+                                        Image(systemName: "location.fill")
+                                            .font(.caption)
+                                            .foregroundStyle(.gray)
+                                    }.labelIconToTitleSpacing(0)
+                                    
+                                    Spacer()
+                                }
+                            }
+                            
+                        }
                     }
+                    .frame(height: 40)
+                    
+                    HStack{
+                        Image(systemName: "pencil.circle.fill").font(.title)
+                        NavigationLink(destination: LocationView()) {
+                            VStack{
+                                HStack{
+                                    Text(location1.name)
+                                    Spacer()
+                                }
+                                HStack{
+                                    Label {
+                                        Text("1.5km")
+                                            .foregroundStyle(.gray)
+                                    } icon: {
+                                        Image(systemName: "location.fill")
+                                            .font(.caption)
+                                            .foregroundStyle(.gray)
+                                    }.labelIconToTitleSpacing(0)
+                                    
+                                    Spacer()
+                                }
+                            }
+                            
+                        }
+                    }
+                    .frame(height: 40)
+                    
+                    
+                    
+                }
+                
+                Section("Recentes") {
+                    HStack{
+                        Image(systemName: "pencil.circle.fill").font(.title)
+                        NavigationLink(destination: LocationView()) {
+                            VStack{
+                                HStack{
+                                    Text(location1.name)
+                                    Spacer()
+                                }
+                                HStack{
+                                    Label {
+                                        Text("1.5km")
+                                            .foregroundStyle(.gray)
+                                    } icon: {
+                                        Image(systemName: "location.fill")
+                                            .font(.caption)
+                                            .foregroundStyle(.gray)
+                                    }.labelIconToTitleSpacing(0)
+                                    
+                                    Spacer()
+                                }
+                            }
+                            
+                        }
+                    }
+                    .frame(height: 40)
+                    
+                    HStack{
+                        Image(systemName: "pencil.circle.fill").font(.title)
+                        NavigationLink(destination: LocationView()) {
+                            VStack{
+                                HStack{
+                                    Text(location1.name)
+                                    Spacer()
+                                }
+                                HStack{
+                                    Label {
+                                        Text("1.5km")
+                                            .foregroundStyle(.gray)
+                                    } icon: {
+                                        Image(systemName: "location.fill")
+                                            .font(.caption)
+                                            .foregroundStyle(.gray)
+                                    }.labelIconToTitleSpacing(0)
+                                    
+                                    Spacer()
+                                }
+                            }
+                            
+                        }
+                    }
+                    .frame(height: 40)
+                    
+                    HStack{
+                        Image(systemName: "pencil.circle.fill").font(.title)
+                        NavigationLink(destination: LocationView()) {
+                            VStack{
+                                HStack{
+                                    Text(location1.name)
+                                    Spacer()
+                                }
+                                HStack{
+                                    Label {
+                                        Text("1.5km")
+                                            .foregroundStyle(.gray)
+                                    } icon: {
+                                        Image(systemName: "location.fill")
+                                            .font(.caption)
+                                            .foregroundStyle(.gray)
+                                    }.labelIconToTitleSpacing(0)
+                                    
+                                    Spacer()
+                                }
+                            }
+                            
+                        }
+                    }
+                    .frame(height: 40)
+                    
+                    
                 }
                 
             }
