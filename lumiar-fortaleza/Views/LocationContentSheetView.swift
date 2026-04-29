@@ -11,7 +11,7 @@ import SwiftUI
 struct LocationContentSheetView: View {
     
     @State private var isExpanded: Bool = false
-    @State var point = [Point]()
+    @State var points = [Point]()
     
     var body: some View {
         
@@ -82,6 +82,10 @@ struct LocationContentSheetView: View {
                         Text(location1.category.rawValue).foregroundStyle(Color.gray)
                     }
                 }
+            }
+            .onAppear {
+                points = loadPoints() ?? []
+//                print(points)
             }
             
             //Componente Comodidades

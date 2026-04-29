@@ -6,15 +6,16 @@
     "address": "R. Prof. Valdivino, 48 - casa 1 - Sabiaguaba, Fortaleza - CE, 60833-034",
     "category": "Museu",
     "description": "A preservação que nasceu da comunidadeJá imaginou abrir mão do seu próprio negócio pra proteger a natureza?Na Sabiaguaba, o avanço sobre o manguezal preocupava moradores que viam o ecossistema sendo degradado cada vez mais. Foi nesse cenário que surgiu uma decisão incomum: transformar uma barraca de praia em um espaço de educação ambiental.Assim nasceu o Ecomuseu Natural do Mangue, um lugar onde o próprio ambiente se torna parte da exposição. Além de um museu ele é um movimento de conscientização e resistência.Hoje, o espaço é reconhecido como patrimônio cultural de Fortaleza e segue mostrando que pequenas iniciativas podem gerar grandes impactos.Curiosidade:\nO ecomuseu atua em parceria com programas ligados à ONU voltados ao meio ambiente.",
-    "horario": {
-      "segunda": "Fechado",
-      "terca": "09:00 - 17:00",
-      "quarta": "09:00 - 12:00",
-      "quinta": "09:00 - 17:00",
-      "sexta": "09:00 - 17:00",
-      "sabado": "09:00 - 17:00",
-      "domingo": "09:00 - 17:00"
-    },
+    "hour": {
+      "segunda": "10:00 - 21:00",
+      "terca": "10:00 - 21:00",
+      "quarta": "10:00 - 21:00",
+      "quinta": "10:00 - 21:00",
+      "sexta": "10:00 - 21:00",
+      "sabado": "10:00 - 21:00",
+      "domingo": "10:00 - 21:00"
+    }
+    ,
     "Comodidades": "Tem BanheiroTem RestauranteLugar aberto",
     "Link Localização": "https://maps.app.goo.gl/Vm2WAzseHERrNCVw5",
     "Foto do Lugar": "7cfbe0df-05a2-4101-beb2-6823e045fe17",

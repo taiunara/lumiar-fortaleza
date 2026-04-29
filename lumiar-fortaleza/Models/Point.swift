@@ -11,10 +11,10 @@ import SwiftUI
 import Foundation
 
 
-struct Point :Identifiable, Codable {
-    let id: String
-    let hour: String
-    let bairro: String
+struct Point: Codable {
+    let hour: [String:String]
+//    let hours: [WorkingHours]
+    let Bairro: String
     let name: String
     let address: String
     let category: String
@@ -24,3 +24,11 @@ struct Point :Identifiable, Codable {
 //  let fotoDoLugar: String
 //  let descricaoDaImagem: String
 }
+
+struct WorkingHours: Codable {
+    let weekday: String
+    let openingHour: String
+    let closingHour: String
+}
+
+
