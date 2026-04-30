@@ -11,7 +11,8 @@ import SwiftUI
 struct LumiarFortalezaApp: App {
     var body: some Scene {
         WindowGroup {
-            LocationView()
+            IndexedSections()
+
         }
     }
 }
