@@ -64,3 +64,7 @@ let location2 = Location(
     coordinates: CLLocationCoordinate2D(latitude: -3.7150, longitude: -38.5430)
 )
 
+//let location3 = Location(
+//    name: "
+//)
+

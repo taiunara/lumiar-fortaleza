@@ -17,8 +17,16 @@ struct ExploreContentSheetView: View {
         NavigationStack {
             List {
                 Section("Sugestão do dia") {
+                    
                     HStack{
-                        Image(systemName: "pencil.circle.fill").font(.title)
+                        ZStack{
+                            Circle()
+                                .foregroundStyle(location2.category.iconColor)
+                            Image(systemName: location1.category.iconSymbol)
+                                .font(.headline)
+                                .foregroundStyle(.white)
+                        }
+                        
                         NavigationLink(destination: LocationView()) {
                             VStack{
                                 HStack{
@@ -38,6 +46,7 @@ struct ExploreContentSheetView: View {
                                     Spacer()
                                 }
                             }
+                            
                         }
                     }
                     .frame(height: 40)
@@ -46,8 +55,16 @@ struct ExploreContentSheetView: View {
                 }
                 
                 Section("Próximos a você") {
+                    
                     HStack{
-                        Image(systemName: "pencil.circle.fill").font(.title)
+                        ZStack{
+                            Circle()
+                                .foregroundStyle(location1.category.iconColor)
+                            Image(systemName: location1.category.iconSymbol)
+                                .font(.headline)
+                                .foregroundStyle(.white)
+                        }
+                        
                         NavigationLink(destination: LocationView()) {
                             VStack{
                                 HStack{
@@ -72,8 +89,16 @@ struct ExploreContentSheetView: View {
                     }
                     .frame(height: 40)
                     
+                    
                     HStack{
-                        Image(systemName: "pencil.circle.fill").font(.title)
+                        ZStack{
+                            Circle()
+                                .foregroundStyle(location2.category.iconColor)
+                            Image(systemName: location2.category.iconSymbol)
+                                .font(.headline)
+                                .foregroundStyle(.white)
+                        }
+                        
                         NavigationLink(destination: LocationView()) {
                             VStack{
                                 HStack{
@@ -98,8 +123,16 @@ struct ExploreContentSheetView: View {
                     }
                     .frame(height: 40)
                     
+                    
                     HStack{
-                        Image(systemName: "pencil.circle.fill").font(.title)
+                        ZStack{
+                            Circle()
+                                .foregroundStyle(location1.category.iconColor)
+                            Image(systemName: location2.category.iconSymbol)
+                                .font(.headline)
+                                .foregroundStyle(.white)
+                        }
+                        
                         NavigationLink(destination: LocationView()) {
                             VStack{
                                 HStack{
@@ -123,14 +156,20 @@ struct ExploreContentSheetView: View {
                         }
                     }
                     .frame(height: 40)
-                    
                     
                     
                 }
                 
                 Section("Recentes") {
                     HStack{
-                        Image(systemName: "pencil.circle.fill").font(.title)
+                        ZStack{
+                            Circle()
+                                .foregroundStyle(location2.category.iconColor)
+                            Image(systemName: location1.category.iconSymbol)
+                                .font(.headline)
+                                .foregroundStyle(.white)
+                        }
+                        
                         NavigationLink(destination: LocationView()) {
                             VStack{
                                 HStack{
@@ -156,7 +195,14 @@ struct ExploreContentSheetView: View {
                     .frame(height: 40)
                     
                     HStack{
-                        Image(systemName: "pencil.circle.fill").font(.title)
+                        ZStack{
+                            Circle()
+                                .foregroundStyle(location1.category.iconColor)
+                            Image(systemName: location2.category.iconSymbol)
+                                .font(.headline)
+                                .foregroundStyle(.white)
+                        }
+                        
                         NavigationLink(destination: LocationView()) {
                             VStack{
                                 HStack{
@@ -182,7 +228,14 @@ struct ExploreContentSheetView: View {
                     .frame(height: 40)
                     
                     HStack{
-                        Image(systemName: "pencil.circle.fill").font(.title)
+                        ZStack{
+                            Circle()
+                                .foregroundStyle(location2.category.iconColor)
+                            Image(systemName: location2.category.iconSymbol)
+                                .font(.headline)
+                                .foregroundStyle(.white)
+                        }
+                        
                         NavigationLink(destination: LocationView()) {
                             VStack{
                                 HStack{
@@ -205,10 +258,7 @@ struct ExploreContentSheetView: View {
                             
                         }
                     }
-                    .frame(height: 40)
-                    
-                    
-                }
+                    .frame(height: 40)}
                 
             }
         }

@@ -54,31 +54,13 @@ struct MapView: View {
                     if let selected {
                         LocationContentSheetView()
                     } else {
-//                        HStack {
-//                            
-//                        }.toolbar(content: {
-//                            
-//                            ToolbarItem {
-//                                Button {
-//                                    // Button actions here.
-//                                } label: {
-//                                    Label("Mais", systemImage: "ellipsis")
-//                                        .fontWeight(.medium)
-//                                }
-//                                //                        .buttonStyle(.glassProminent)
-//                                //                        .tint(.black.opacity(0.8))
-//                                .glassEffect(.identity.interactive())
-//                            }
-//                            
-//                        })
-                        
+                        ExploreContentSheetView()
                     }
                 }
             }
             .padding(.top, 10)
             .searchable(text: $searchText, placement: .toolbarPrincipal, prompt: "Buscar pontos")
             .presentationDetents([.fraction(0.1), .medium,.large], selection: $currentPresentationDetent)
-            
             .interactiveDismissDisabled(true)
             .presentationBackgroundInteraction(.enabled(upThrough: .medium))
         }
