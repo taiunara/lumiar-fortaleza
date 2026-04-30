@@ -27,7 +27,10 @@ struct MapView: View {
     
     let markers = [
         location1,
-        location2
+        location2,
+        location3,
+        location4,
+        location5
     ]
     
     @State var currentPresentationDetent: PresentationDetent = .fraction(0.1)
