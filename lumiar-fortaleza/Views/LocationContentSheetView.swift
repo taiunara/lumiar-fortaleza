@@ -37,16 +37,8 @@ struct LocationContentSheetView: View {
                 }
                 
                 HStack(alignment: .center, spacing: 10){
-                    Image(.imageTest1)
-                        .resizable()
-                        .scaledToFit()
-                        .cornerRadius(15)
-                        .clipped()
-                    Image(.imageTest2)
-                        .resizable()
-                        .scaledToFit()
-                        .cornerRadius(15)
-                        .clipped()
+                    CarouselView()
+
                 }
                 .frame(maxHeight: 150, alignment: .leading)
                 .cornerRadius(15)
@@ -85,7 +77,6 @@ struct LocationContentSheetView: View {
             }
             .onAppear {
                 points = loadPoints() ?? []
-//                print(points)
             }
             
             //Componente Comodidades
@@ -97,26 +88,8 @@ struct LocationContentSheetView: View {
 }
 
 
-// Teste leitura de Json (Falar com Raíssa)
 
-//func decode(_ file: String) -> [Point] {
-//        guard let url = Bundle.main.url(forResource: file, withExtension: nil) else {
-//            fatalError("Faliled to locate \(file) in bundle")
-//        }
-//        
-//        guard let data = try? Data(contentsOf: url) else {
-//            fatalError("Failed to load file from \(file) from bundle")
-//        }
-//        
-//        let decoder = JSONDecoder()
-//        
-//        guard let loadedFile = try? decoder.decode([Point].self, from: data) else {
-//            fatalError("Failed to decode \(file) from bundle")
-//        }
-//        
-//        return loadedFile
-//    }
-
+// Função para acessar o Json
 func loadPoints() -> [Point]? {
     guard let url = Bundle.main.url(forResource: "Points", withExtension: "json"),
           let data = try? Data(contentsOf: url) else {

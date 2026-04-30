@@ -22,17 +22,21 @@ struct IndexedSections: View {
             List {
                 ForEach(alphabet, id:\.self) { letter in
                     //verificar primeiro se tem algum bairro com essa letra, se nao pula
+                    let list = bairros.filter({ $0.first == letter.first })
+                    let listSet = Set(list)
                     
-                    Section {
-                        ForEach(bairros, id: \.self) { bairro in
-                            if bairro.first == letter.first {
-                                Text(bairro)
+                    if (!listSet.isEmpty) {
+                        Section {
+                            ForEach(Array(listSet), id: \.self) { bairro in
+                                NavigationLink(destination: NeighbourhoodExtendedView()) {
+                                    Text(bairro)
+                                }
                             }
+                            
+                        } header: {
+                            Text(letter)
+                            
                         }
-                        
-                    } header: {
-                        Text(letter)
-      
                     }
                 }
                 .padding()
@@ -46,25 +50,7 @@ struct IndexedSections: View {
     
 }
     
-    
-    
-    // Nossa view
-    //struct NeighbourhoodListView: View {
-    //
-    //    @State var neighbourhoods: [Neighbourhood]
-    //
-    //    var body: some View {
-    //        NavigationStack {
-    //            List {
-    //                ForEach(neighbourhoods) { neighbourhood in
-    //                    Text(neighbourhood.name)
-    //                }
-    //            }
-    //        }
-    //    }
-    //}
-    //func
-    //
+
     #Preview {
         IndexedSections()
     }
