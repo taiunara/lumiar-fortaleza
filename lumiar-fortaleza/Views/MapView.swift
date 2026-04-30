@@ -18,6 +18,13 @@ struct MapView: View {
     
     @State var searchText: String = ""
     
+    @State private var position: MapCameraPosition = .region(
+        MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: -3.7319, longitude: -38.5267),
+            span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        )
+    )
+    
     let markers = [
         location1,
         location2
@@ -26,23 +33,43 @@ struct MapView: View {
     @State var currentPresentationDetent: PresentationDetent = .fraction(0.1)
     
     var body: some View {
-        Map{
+        Map (position: $position){
             ForEach(markers) { marker in
                 Annotation(marker.name, coordinate: marker.coordinates) {
-                    Button ( action: {
-                        selected = marker
-                        currentPresentationDetent = .medium
-                    }) {
-                        Image(.imageTest1)
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                            .cornerRadius(50)
-                            .scaledToFill()
+                    ZStack {
+                        Circle()
+                            .foregroundStyle(marker.category.iconColor)
+                            .frame(width: 46, height: 46)
+                        Button ( action: {
+                            selected = marker
+                            currentPresentationDetent = .medium
+                            let adjustedCenter = CLLocationCoordinate2D(
+                                latitude: marker.latitude - 0.005,
+                                longitude: marker.longitude
+                            )
+                            withAnimation(.easeInOut(duration: 1.0)) {
+                                    position = .region(
+                                        MKCoordinateRegion(
+                                            center: adjustedCenter,
+                                            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                                        )
+                                    )
+                                }
+                            
+                        }) {
+                            Image(.imageTest1)
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .cornerRadius(50)
+                                .scaledToFill()
+                        }
                     }
                     
                 }
             }
+            
         }
+        
         .onChange(of: currentPresentationDetent) {
             if currentPresentationDetent == .fraction(0.1) {
                 selected = nil
