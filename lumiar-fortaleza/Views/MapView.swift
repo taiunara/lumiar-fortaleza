@@ -81,6 +81,7 @@ struct MapView: View {
                     if let selected {
                         LocationContentSheetView()
                     } else {
+                        // TODO: ajustar para ir para página do local e quando sair ele sair para o normal da sheet
                         ExploreContentSheetView()
                     }
                 }
