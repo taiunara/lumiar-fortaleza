@@ -20,7 +20,7 @@ struct MapView: View {
     
     @State private var position: MapCameraPosition = .region(
         MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: -3.7319, longitude: -38.5267),
+            center: CLLocationCoordinate2D(latitude: -3.71382, longitude: -38.47057),
             span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         )
     )

@@ -79,7 +79,7 @@ let location3 = Location(
     visitTimeMin: 1,
     visitTimeHour: 30,
     coordinates: CLLocationCoordinate2D(latitude: -3.72748, longitude: -38.53167),
-    comodities: [ Comodities.bathroom, Comodities.park, Comodities.acessibility]
+    comodities: [Comodities.bathroom, Comodities.park, Comodities.acessibility]
 )
 
 let location4 = Location(
