@@ -97,15 +97,13 @@ struct MapView: View {
                     }
                 }
                 .sheet(isPresented: $isPresented) {
-                    NavigationStack {
-                        HStack {
-                            if let selected {
-                                LocationContentSheetView()
-                            } else {
-                                // TODO: ajustar para ir para página do local e quando sair ele sair para o normal da sheet
-                                
-                                ExploreContentSheetView()
-                            }
+                    HStack {
+                        if let selected {
+                            LocationContentSheetView()
+                        } else {
+                            // TODO: ajustar para ir para página do local e quando sair ele sair para o normal da sheet
+                            
+                            ExploreContentSheetView()
                         }
                     }
                     .padding(.top, 10)
@@ -115,7 +113,7 @@ struct MapView: View {
                     .presentationBackgroundInteraction(.enabled(upThrough: .medium))
                 }
                 .mapStyle(.standard(elevation: .realistic))
-                .ignoresSafeArea()
+//                .ignoresSafeArea()
                 .onTapGesture {
                     currentPresentationDetent = .fraction(0.1)
                 }
@@ -129,6 +127,14 @@ struct MapView: View {
                 .offset(x: 150, y: 250)
                 
             }
+            .onChange(of: currentPresentationDetent, { _, newValue in
+                print("Caiu aqui!")
+                print(newValue)
+                print(newValue == .fraction(0.1))
+                if newValue == .fraction(0.1) {
+                    selected = nil
+                }
+            })
             
         }
     }
