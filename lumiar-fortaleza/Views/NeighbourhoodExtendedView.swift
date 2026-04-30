@@ -21,6 +21,7 @@ struct NeighbourhoodExtendedView: View {
                 .listRowBackground(Color.clear)
         }
         .listStyle(.plain)
+        .navigationTitle(location1.name)
     }
 }
 
