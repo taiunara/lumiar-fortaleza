@@ -18,7 +18,9 @@ struct LocationContentSheetView: View {
         NavigationStack {
             VStack(alignment: .leading) {
                 
-                RoutesButtonView(radius: 30)
+                HStack{
+                    RoutesButtonView(radius: 30)
+                }
                 
                 HStack{
                     VStack{
@@ -29,7 +31,8 @@ struct LocationContentSheetView: View {
                             .bold()
                     }
                     .padding(5)
-                    .frame(maxWidth: .infinity, alignment: .center)
+                    
+                    .frame( maxWidth: .infinity, alignment: .center)
                     .cornerRadius(10)
                     
                     DistanceInfoView()
@@ -40,12 +43,13 @@ struct LocationContentSheetView: View {
                     CarouselView()
 
                 }
-                .frame(maxHeight: 150, alignment: .leading)
+                .frame( minHeight: 150, maxHeight: 150 , alignment: .leading)
                 .cornerRadius(15)
                 
                 VStack (alignment: .leading, spacing: 5) {
                     Text(location1.history)
                         .lineLimit(isExpanded ? nil : 5)
+                        .frame(width: .infinity, height: 100)
                     
                     Button(action: {
                         isExpanded = true
@@ -65,6 +69,7 @@ struct LocationContentSheetView: View {
 
                 
             }
+            .frame(width: .infinity, height: 300,  alignment: .topLeading)
             .padding(.horizontal, 20)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
@@ -73,6 +78,7 @@ struct LocationContentSheetView: View {
                         Text(location1.name).foregroundStyle(Color.black)
                         Text(location1.category.rawValue).foregroundStyle(Color.gray)
                     }
+                    
                 }
             }
             .onAppear {
@@ -108,5 +114,5 @@ func loadPoints() -> [Point]? {
 
 
 #Preview {
-    LocationContentSheetView()
+    MapView()
 }
