@@ -26,6 +26,7 @@ struct MapView: View {
     @State var currentPresentationDetent: PresentationDetent = .fraction(0.1)
     
     var body: some View {
+        
         Map{
             ForEach(markers) { marker in
                 Annotation(marker.name, coordinate: marker.coordinates) {
@@ -42,12 +43,14 @@ struct MapView: View {
                     
                 }
             }
+            
         }
         .onChange(of: currentPresentationDetent) {
             if currentPresentationDetent == .fraction(0.1) {
                 selected = nil
             }
         }
+        
         .sheet(isPresented: $isPresented) {
             NavigationStack {
                 HStack {
@@ -64,10 +67,17 @@ struct MapView: View {
             .interactiveDismissDisabled(true)
             .presentationBackgroundInteraction(.enabled(upThrough: .medium))
         }
+        .mapControls {
+            MapCompass()
+            MapPitchToggle()
+            MapUserLocationButton()
+            MapScaleView()
+        }
         .ignoresSafeArea()
         .onTapGesture {
             currentPresentationDetent = .fraction(0.1)
         }
+        
     }
 }
 
