@@ -60,7 +60,7 @@ struct MapView: View {
             }
             .padding(.top, 10)
             .searchable(text: $searchText, placement: .toolbarPrincipal, prompt: "Buscar pontos")
-            .presentationDetents([.fraction(0.1), .medium,.large], selection: $currentPresentationDetent)
+            .presentationDetents([.fraction(0.1), .medium, .large], selection: $currentPresentationDetent)
             .interactiveDismissDisabled(true)
             .presentationBackgroundInteraction(.enabled(upThrough: .medium))
         }
