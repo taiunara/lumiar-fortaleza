@@ -7,11 +7,13 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
 struct LocationContentSheetView: View {
-    
     @State private var isExpanded: Bool = false
-    @State var points = [Point]()
+//    @State var points = [Point]()
+    
+    var location: Location
     
     var body: some View {
         
@@ -23,7 +25,7 @@ struct LocationContentSheetView: View {
                 }
                 
                 HStack{
-                    VStack{
+                    VStack{ //TO DO:  Puxar o horário de funcionamento do database
                         Text("Funcionamento")
                         
                         Text("Aberto")
@@ -41,13 +43,14 @@ struct LocationContentSheetView: View {
                 
                 HStack(alignment: .center, spacing: 10){
                     CarouselView()
-
+                    
                 }
                 .frame( minHeight: 150, maxHeight: 150 , alignment: .leading)
                 .cornerRadius(15)
                 
                 VStack (alignment: .leading, spacing: 5) {
-                    Text(location1.history)
+                    
+                    Text(location.history)
                         .lineLimit(isExpanded ? nil : 5)
                         .frame(width: .infinity, height: 100)
                     
@@ -56,14 +59,15 @@ struct LocationContentSheetView: View {
                     }) {
                         Text("Ler mais")
                     }
+                    
+                    .navigationDestination(isPresented: $isExpanded) {
+                        LocationView(location: location)
+                    }
+                    
                 }
-                .navigationDestination(isPresented: $isExpanded) {
-                    LocationView()
-                }
-                
 //  View de informações úteis
                 
-                UsefulInformation()
+                UsefulInformation(location: location)
                 
                 ComoditiesView()
 
@@ -75,44 +79,71 @@ struct LocationContentSheetView: View {
             .toolbar{
                 ToolbarItem(placement: .principal) {
                     VStack{
-                        Text(location1.name).foregroundStyle(Color.black)
-                        Text(location1.category.rawValue).foregroundStyle(Color.gray)
+                        Text(location.name).foregroundStyle(Color.black)
+                        Text(location.category.displayName).foregroundStyle(Color.gray)
                     }
                     
                 }
             }
-            .onAppear {
-                points = loadPoints() ?? []
-            }
+//            .onAppear {
+//                points = loadPoints() ?? []
+//                location = preloadData() 
+//            }
             
             //Componente Comodidades
             Spacer()
         }
-        
-    }
-    
-}
-
-
-
-// Função para acessar o Json
-func loadPoints() -> [Point]? {
-    guard let url = Bundle.main.url(forResource: "Points", withExtension: "json"),
-          let data = try? Data(contentsOf: url) else {
-        print("Erro ao carregar arquivo JSON")
-        return nil
-    }
-    
-    do {
-        let pontos = try JSONDecoder().decode([Point].self, from: data)
-        return pontos
-    } catch {
-        print("Erro ao decodificar JSON: \(error)")
-        return nil
     }
 }
+
+ //Função para acessar o Json
+//func loadPoints() -> [Point]? {
+//    guard let url = Bundle.main.url(forResource: "Points", withExtension: "json"),
+//          let data = try? Data(contentsOf: url) else {
+//        print("Erro ao carregar arquivo JSON")
+//        return nil
+//    }
+//    
+//    do {
+//        let pontos = try JSONDecoder().decode([Point].self, from: data)
+//        return pontos
+//    } catch {
+//        print("Erro ao decodificar JSON: \(error)")
+//        return nil
+//    }
+//}
+
+//func encontrarLocal(pelo id: UUID) {
+//    let localDesejado = locations.first(where: { $0.id == id })
+//    // faz algo com o localDesejado
+//}
 
 
 #Preview {
-    MapView()
+    do {
+        // 1. Cria um banco de dados temporário para o Preview
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Location.self, configurations: config)
+        
+        // 2. Mandamos o DataLoader ler o JSON real e injetar nesse banco temporário
+        DataLoader.preloadData(context: container.mainContext)
+        
+        // 3. Agora buscamos o primeiro local que o DataLoader acabou de salvar
+        let fetchDescriptor = FetchDescriptor<Location>()
+        let locaisSalvos = try container.mainContext.fetch(fetchDescriptor)
+        
+        // 4. Pegamos o primeiro local da lista
+        guard let primeiroLocalDoJson = locaisSalvos.first else {
+            return AnyView(Text("Nenhum local encontrado no JSON.")) // AnyView resolve conflito de tipo no preview
+        }
+        
+        // 5. Desenhamos a sua tela passando os dados reais que vieram do JSON!
+        return AnyView(
+            LocationContentSheetView(location: primeiroLocalDoJson)
+                .modelContainer(container)
+        )
+        
+    } catch {
+        return AnyView(Text("Erro no Preview: \(error.localizedDescription)"))
+    }
 }

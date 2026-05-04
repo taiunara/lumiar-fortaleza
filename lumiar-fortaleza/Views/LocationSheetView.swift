@@ -9,32 +9,33 @@ import SwiftUI
 import SwiftData
 
 struct LocationSheetView: View {
-    
-    @State private var selectedDetent: PresentationDetent = .medium
-    @State private var isSheetPresented = false
+//    
+//    @State private var selectedDetent: PresentationDetent = .medium
+//    @State private var isSheetPresented = false
     
     var body: some View {
-        Button("Show Sheet") {
-            isSheetPresented.toggle()
-        }
-        .sheet(isPresented: $isSheetPresented) {
-            sheetContent
-                .presentationDetents([ .medium, .large], selection: $selectedDetent)
-        }
+        Text("Hello world")
+//        Button("Show Sheet") {
+//            isSheetPresented.toggle()
+//        }
+//        .sheet(isPresented: $isSheetPresented) {
+//            sheetContent
+//                .presentationDetents([ .medium, .large], selection: $selectedDetent)
+//        }
     }
     
-    @ViewBuilder
-    private var sheetContent: some View {
-        switch selectedDetent {
-        case .medium:
-            LocationContentSheetView()
-        case .large:
-            LocationContentSheetView()
-        default:
-            LocationContentSheetView()
-        }
-        
-    }
+//    @ViewBuilder
+//    private var sheetContent: some View {
+//        switch selectedDetent {
+//        case .medium:
+//            LocationContentSheetView()
+//        case .large:
+//            LocationContentSheetView()
+//        default:
+//            LocationContentSheetView()
+//        }
+//        
+//    }
     
     
 }

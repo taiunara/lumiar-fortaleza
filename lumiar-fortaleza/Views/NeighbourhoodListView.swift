@@ -6,45 +6,49 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct NeighbourhoodListView: View {
     
-    @State private var pontos: [Point] = []
-    
+    @Query private var locations: [Location]
     var bairros: [String] {
-        //nao repetir os bairros
-        pontos.flatMap(\.Bairro).sorted()
+        // Pega apenas a string 'neighbourhood' de todos os locais
+        let todosBairros = locations.map { $0.neighbourhood }
+        // Transforma em 'Set' para remover nomes repetidos
+        let bairrosUnicos = Set(todosBairros)
+        // Devolve como uma lista Array ordenada de A a Z
+        return Array(bairrosUnicos).sorted()
     }
-    var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     
     var body: some View {
         NavigationStack {
             List {
                 ForEach(alphabet, id:\.self) { letter in
-                    //verificar primeiro se tem algum bairro com essa letra, se nao pula
-                    let list = bairros.filter({ $0.first == letter.first })
-                    let listSet = Set(list)
                     
-                    if (!listSet.isEmpty) {
+                    // 3. Filtra os bairros que COMEÇAM com a letra atual do loop
+                    let bairrosComLetra = bairros.filter { $0.hasPrefix(letter) }
+                    
+                    // 4. Só desenha a seção na tela se existir algum bairro com essa letra
+                    if !bairrosComLetra.isEmpty {
                         Section {
-                            ForEach(Array(listSet), id: \.self) { bairro in
+                            ForEach(bairrosComLetra, id: \.self) { bairro in
+                                // Futuramente você pode passar a variável 'bairro' para a tela seguinte
                                 NavigationLink(destination: NeighbourhoodExtendedView()) {
                                     Text(bairro)
                                 }
                             }
-                            
                         } header: {
                             Text(letter)
-                            
                         }
                     }
                 }
                 .padding()
             }
             .navigationTitle("Bairros")
-            .onAppear {
-                pontos = loadPoints() ?? []
-            }
+//            .onAppear {
+//                pontos = loadPoints() ?? []
+//            }
         }
         
     }
@@ -52,6 +56,20 @@ struct NeighbourhoodListView: View {
 }
     
 
-    #Preview {
-        NeighbourhoodListView()
+#Preview {
+    do {
+        // 1. Cria um banco de dados temporário para o Preview
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Location.self, configurations: config)
+        
+        // 2. Faz o DataLoader ler o JSON real e jogar no Preview
+        DataLoader.preloadData(context: container.mainContext)
+        
+        // 3. Mostra a tela de bairros conectada ao banco temporário
+        return NeighbourhoodListView()
+            .modelContainer(container)
+            
+    } catch {
+        return Text("Erro no Preview: \(error.localizedDescription)")
     }
+}
