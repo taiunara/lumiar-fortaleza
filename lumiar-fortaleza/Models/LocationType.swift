@@ -9,15 +9,28 @@ import Foundation
 import SwiftUI
 
 enum LocationType: String, CaseIterable, Codable {
-    case none = "Nenhum"
-    case park = "Parque"
-    case museum = "Museu"
-    case cinema = "Cinema"
-    case theater = "Teatro"
-    // case naturalLandmark = "Marco Natural"
-    case historicalLandmark = "Marco Histórico"
-    case touristAttraction = "Atração Turística"
-    case religiousLandmark = "Monumento Religioso"
+    case none = "none"
+        case park = "park"
+        case museum = "museum"
+        case cinema = "cinema"
+        case theater = "theater"
+        case historicalLandmark = "historicalLandmark"
+        case touristAttraction = "touristAttraction"
+        case religiousLandmark = "religiousLandmark"
+        
+        var displayName: String {
+            switch self {
+            case .none: return "Nenhum"
+            case .park: return "Parque"
+            case .museum: return "Museu"
+            case .cinema: return "Cinema"
+            case .theater: return "Teatro"
+            case .historicalLandmark: return "Marco Histórico"
+            case .touristAttraction: return "Atração Turística"
+            case .religiousLandmark: return "Monumento Religioso"
+            }
+        }
+    
     
     var iconSymbol: String {
         switch self {

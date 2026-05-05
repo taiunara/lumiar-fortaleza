@@ -12,7 +12,7 @@ struct UsefulInformation: View {
     @State private var presentingWorkingHours = false
 
     //TODO: Adicionar posteriomente horário recomendado E linkar os horarios e dias da semana a API
-    
+    var location: Location
     var body: some View {
         
         VStack(alignment: .leading, spacing: 5) {
@@ -53,7 +53,7 @@ struct UsefulInformation: View {
     }
 }
 
-#Preview {
-    LocationContentSheetView()
-}
+//#Preview {
+//    LocationContentSheetView()
+//}
 

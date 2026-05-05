@@ -8,23 +8,36 @@ import SwiftUI
 import Foundation
 
 enum Comodities: String, CaseIterable, Codable, Identifiable {
-    case bathroom =  "Banheiro"
-    case park = "Estacionamento"
-    case acessibility = "Acessibilidade"
+    case none = "none"
+    case bathroom = "bathroom"
+    case park = "park"
+    case acessibility = "acessibility"
     
-    var imageName: Image {
-        switch(self) {
-        case .bathroom:
-            Image(systemName: "toilet.circle.fill")
-            
-        case .park:
-            Image(systemName: "car.circle.fill")
-
-        case .acessibility:
-            Image(systemName: "figure.roll.circle.fill")
-
+    // Propriedade para mostrar na tela (UI)
+    var displayName: String {
+        switch self {
+        case .none:
+                return "Nenhum"
+            case .bathroom:
+                return "Banheiro"
+            case .park:
+                return "Estacionamento"
+            case .acessibility:
+                return "Acessibilidade"
         }
     }
     
-    var id: Self { self }
-}
+    var imageName: Image {
+        switch self {
+        case .none:
+            return Image(systemName: "nosign")
+            case .bathroom:
+                return Image(systemName: "toilet.circle.fill")
+            case .park:
+                return Image(systemName: "car.circle.fill")
+            case .acessibility:
+                return Image(systemName: "figure.roll.circle.fill")
+        }
+    }
+    
+    var id: Self { self }}

@@ -5,10 +5,17 @@
 //  Created by user on 30/04/26.
 //
 import SwiftUI
+import SwiftData
 
 struct CarouselView: View {
-    let imagesNames: [String] = ["ImageTest1", "ImageTest2", "ImageTest3", "ImageTest4", "ImageTest5"]
+    var location: Location
+    
     @State private var currentIndex = 0
+    
+    var imagesNames: [String] {
+        return [location.imageName]
+    }
+    
     var body: some View {
         VStack(spacing:0){
             TabView(selection:$currentIndex){
@@ -28,6 +35,6 @@ struct CarouselView: View {
     }
 }
 
-#Preview {
-    CarouselView()
-}
+//#Preview {
+//    CarouselView(location: Location.)
+//}

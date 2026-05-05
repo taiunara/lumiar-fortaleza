@@ -5,12 +5,13 @@
 //  Created by user on 24/04/26.
 //
 
+import SwiftData
 import SwiftUI
 import MapKit
 
-
-
 struct MapView: View {
+    
+    @Environment(\.modelContext) var modelContext
     
     @Namespace var mapScope
     
@@ -31,13 +32,7 @@ struct MapView: View {
         )
     )
     
-    let markers = [
-        location1,
-        location2,
-        location3,
-        location4,
-        location5
-    ]
+    @Query var markers: [Location]
     
     let cameraPosition: MapCameraPosition = .region(.init(center: .init(latitude: -3.763, longitude: -38.5267), latitudinalMeters: 20000, longitudinalMeters: 20000))
     
@@ -69,7 +64,7 @@ struct MapView: View {
                                     }
                                     
                                 }) {
-                                    Image(.imageTest1)
+                                    Image(marker.imageName)
                                         .resizable()
                                         .frame(width: 40, height: 40)
                                         .cornerRadius(50)
@@ -99,7 +94,7 @@ struct MapView: View {
                 .sheet(isPresented: $isPresented) {
                     HStack {
                         if let selected {
-                            LocationContentSheetView()
+                            LocationContentSheetView(location: selected)
                         } else {
                             // TODO: ajustar para ir para página do local e quando sair ele sair para o normal da sheet
                             
@@ -136,6 +131,18 @@ struct MapView: View {
                 }
             })
             
+        }
+        .onChange(of: markers, { _, _ in
+            print("Markers no SwiftData: \(markers.count)")
+        })
+        .onAppear {
+            if markers.isEmpty {
+                let locations = DataLoader.preloadDataV2()
+                print(locations.count)
+                for location in locations {
+                    modelContext.insert(location)
+                }
+            }
         }
     }
     

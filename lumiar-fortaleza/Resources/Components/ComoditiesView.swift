@@ -39,6 +39,6 @@ struct ComoditiesView: View {
 }
 
 #Preview {
-    LocationContentSheetView()
+//    LocationContentSheetView()
 }
 
