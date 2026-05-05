@@ -23,7 +23,7 @@ struct LocationExtendedCard: View {
                 .frame(width: .infinity)
                 .frame(height: 180)
                 .overlay {
-                    Image(.imageTest1)
+                    Image(location.imageName)
                         .resizable()
                         .scaledToFill()
                 }

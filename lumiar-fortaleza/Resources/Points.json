@@ -18,7 +18,7 @@
     },
     "comodities": ["bathroom", "acessibility"],
     "locationLink": "https://maps.app.goo.gl/Vm2WAzseHERrNCVw5",
-    "imageName": "7cfbe0df-05a2-4101-beb2-6823e045fe17",
+    "imageName": "image_ecomuseu_natural_do_mangue",
     "imageDescription": "Na imagem, é representado o Ecomuseu Natural do Mangue da Sabiaguaba, uma pequena construção branca com fachada simples, com placas de madeira decorativas e plantas fixadas na parede externa, situada em área arenosa cercada por vegetação de mangue, sob céu parcialmente nublado."
   },
   {
@@ -40,7 +40,7 @@
     },
     "comodities": ["bathroom", "acessibility"],
     "locationLink": "https://maps.app.goo.gl/hek1MK1XjDCQYC7C6",
-    "imageName": "ea4c1efe-30e9-499b-ac94-79f5b65ea4a8",
+    "imageName": "image_raizes_da_sabiaguaba",
     "imageDescription": "Na imagem, é representado o Centro de Memória Raízes da Sabiaguaba, em um ambiente interno expositivo com paredes em tons de verde. Em destaque, há grande painel decorativo com a inscrição “Raízes da Sabiaguaba”, ilustrado com elementos que remetem à natureza, como folhas e madeira estilizada. O espaço apresenta iluminação direcionada no teto e exibe conteúdos informativos nas paredes, além de mobiliário interativo de madeira. Algumas pessoas circulam pelo local, observando as exposições, o que reforça o caráter educativo e cultural do ambiente."
   },
   {
@@ -84,7 +84,7 @@
     },
     "comodities": ["none"],
     "locationLink": "",
-    "imageName": "f58cd74d-bf2b-40f0-965c-a65b0b38c325",
+    "imageName": "image_farol_velho",
     "imageDescription": "Na imagem, é representado o Farol do Mucuripe, uma torre histórica de cor amarela situada no topo de um morro gramado, com acesso por uma escadaria central com corrimãos, sob um céu azul com nuvens brancas"
   },
   {
@@ -106,7 +106,7 @@
     },
     "comodities": ["acessibility"],
     "locationLink": "",
-    "imageName": "4f44a6ff-5f41-4a5f-967e-aa5d5672c522",
+    "imageName": "image_ponte_dos_ingleses",
     "imageDescription": "Na imagem, é representada a Ponte dos Ingleses, um píer de madeira que se estende sobre o mar, com guarda-corpo branco, postes de iluminação e ondas quebrando nas rochas em primeiro plano, sob um céu azulado"
   },
   {
@@ -128,7 +128,7 @@
     },
     "comodities": ["bathroom", "acessibility"],
     "locationLink": "https://maps.app.goo.gl/TLg6tAVpdExEZNqG9",
-    "imageName": "6f76a931-bb5e-4dd1-adbb-6f630afc2b88",
+    "imageName": "image_seara_da_ciencia",
     "imageDescription": "Na imagem, é representada a Seara da Ciência, vinculada à Universidade Federal do Ceará. Observa-se a fachada curva de um edifício de cor clara, com a inscrição “UFC Seara da Ciência” em destaque. Sobre o topo da estrutura, há a escultura de um dinossauro, projetando-se para fora, o que confere um caráter lúdico e científico ao local. Ao fundo, o céu aparece parcialmente nublado, complementando a cena externa do espaço dedicado à divulgação científica."
   },
   {
@@ -150,7 +150,7 @@
     },
     "comodities": ["none"],
     "locationLink": "Localização não disponível",
-    "imageName": "476cbb48-128c-449f-a9e1-b4bfdce45406",
+    "imageName": "image_casamatas",
     "imageDescription": "Na imagem, é representada uma das casamatas localizadas no campus do Pici, pertencente à Universidade Federal do Ceará. A estrutura, construída em alvenaria robusta, apresenta paredes espessas e aspecto rústico, com pequenas aberturas circulares que indicam ventilação limitada. Sobre a construção, há um pequeno elemento elevado que reforça sua função original como abrigo militar.Ao lado da casamata, um homem apoia o braço sobre a parede, evidenciando a escala da edificação e sua ocupação atual. O entorno é composto por solo arenoso e árvores, sugerindo um ambiente simples e adaptado ao uso cotidiano. A cena revela, de forma silenciosa, a permanência dessas construções históricas, que hoje misturam vestígios da Segunda Guerra Mundial com a vida presente."
   },
   {
@@ -172,7 +172,7 @@
     },
     "comodities": ["none"],
     "locationLink": "Litoral de Fortaleza – próximo ao Marina Park Hotel",
-    "imageName": "6e5504f8-421a-45ee-a7c6-1e46ae2a70d1",
+    "imageName": "image_mara_hope",
     "imageDescription": "Na imagem, é representado o navio Mara Hope, uma grande embarcação cargueira de casco escuro tomada por extensas áreas de ferrugem, parcialmente submersa em águas azul-esverdeadas, com a proa voltada para a direita. Ao fundo, observa-se uma faixa urbana com prédios baixos sob um céu azul claro com poucas nuvens, destacando o contraste entre o estado deteriorado do navio e a paisagem costeira ao redor."
   },
   {
@@ -194,7 +194,7 @@
     },
     "comodities": ["bathroom", "acessibility"],
     "locationLink": "https://maps.app.goo.gl/hnPjiBLDuVkjhKoP7",
-    "imageName": "6d127586-93b6-4e60-9280-e5815c7f150c",
+    "imageName": "image_fortaleza_de_nossa_senhora",
     "imageDescription": "Na imagem, é representada a Fortaleza de Nossa Senhora da Assunção, um edifício histórico de fachada alongada em tom roxo com detalhes brancos, composto por janelas em arco e uma entrada central destacada. Em primeiro plano, há uma estátua de pedra de um personagem histórico posicionada sobre uma coluna alta, voltada para a área externa. À direita, observa-se um mastro com a bandeira do Brasil tremulando, enquanto algumas pessoas e veículos aparecem próximos à entrada. O cenário é iluminado por um céu azul claro, reforçando o aspecto monumental e histórico do local."
   },
   {
@@ -204,8 +204,7 @@
     "category": "religiousLandmark",
     "latitude": -3.724690,
     "longitude": -38.524600,
-    "history": "A Catedral Metropolitana de Fortaleza, dedicada a São José, é um dos principais marcos religiosos e arquitetônicos da cidade. Sua construção teve início em 1939 e foi concluída apenas em 1978, após décadas de trabalho e mobilização da comunidade. Projetada pelo engenheiro francês George Mounier, a catedral apresenta um estilo inspirado no gótico, com grandes dimensões e capacidade para milhares de pessoas. Seus vitrais e estrutura imponente se destacam na paisagem urbana, refletindo a importância do espaço para a fé e a cultura local. Antes da construção atual, outras igrejas ocuparam o mesmo papel ao longo da história, sendo reconstruídas devido ao crescimento da cidade e a problemas estruturais. A catedral atual surge, portanto, como resultado de um longo processo de transformação e continuidade religiosa. O interior abriga diferentes capelas, criptas e espaços de contemplação, além de elementos históricos que guardam a memória de líderes religiosos e da própria formação da Arquidiocese. Mais do que um templo, a catedral representa a dedicação de gerações que contribuíram para sua construção, tornando-se um símbolo vivo da identidade e da espiritualidade em Fortaleza.
-Curiosidade: A construção da catedral levou cerca de 39 anos para ser concluída, quase o mesmo tempo que separa gerações inteiras.",
+    "history": "A Catedral Metropolitana de Fortaleza, dedicada a São José, é um dos principais marcos religiosos e arquitetônicos da cidade. Sua construção teve início em 1939 e foi concluída apenas em 1978, após décadas de trabalho e mobilização da comunidade. Projetada pelo engenheiro francês George Mounier, a catedral apresenta um estilo inspirado no gótico, com grandes dimensões e capacidade para milhares de pessoas. Seus vitrais e estrutura imponente se destacam na paisagem urbana, refletindo a importância do espaço para a fé e a cultura local. Antes da construção atual, outras igrejas ocuparam o mesmo papel ao longo da história, sendo reconstruídas devido ao crescimento da cidade e a problemas estruturais. A catedral atual surge, portanto, como resultado de um longo processo de transformação e continuidade religiosa. O interior abriga diferentes capelas, criptas e espaços de contemplação, além de elementos históricos que guardam a memória de líderes religiosos e da própria formação da Arquidiocese. Mais do que um templo, a catedral representa a dedicação de gerações que contribuíram para sua construção, tornando-se um símbolo vivo da identidade e da espiritualidade em Fortaleza. Curiosidade: A construção da catedral levou cerca de 39 anos para ser concluída, quase o mesmo tempo que separa gerações inteiras.",
     "operatingHours": {
       "monday": "08:00 - 17:00",
       "tuesday": "08:00 - 17:00",
@@ -217,7 +216,7 @@ Curiosidade: A construção da catedral levou cerca de 39 anos para ser concluí
     },
     "comodities": ["bathroom"],
     "locationLink": "https://maps.app.goo.gl/wE6kRpPbYMh8B7pB6",
-    "imageName": "8170f45e-6801-4ef4-9da7-324b407d42c4",
+    "imageName": "image_catedral",
     "imageDescription": "Na imagem, é representada a Catedral Metropolitana de Fortaleza, uma imponente construção religiosa de estilo neogótico, vista de cima, com duas altas torres pontiagudas que se destacam na paisagem urbana. Sua fachada em tons de cinza apresenta grandes janelas em arco e um vitral circular central, enquanto a estrutura se estende com detalhes arquitetônicos complexos ao longo de todo o edifício. Ao redor, observam-se ruas com carros, algumas áreas arborizadas e construções urbanas, evidenciando a integração da catedral ao centro da cidade sob um céu claro e iluminado."
   },
   {
@@ -239,7 +238,7 @@ Curiosidade: A construção da catedral levou cerca de 39 anos para ser concluí
     },
     "comodities": ["bathroom"],
     "locationLink": "https://maps.app.goo.gl/cuWGg6jFMWqvRnuK7",
-    "imageName": "f8ee0d03-2a7b-4d87-a074-4b117d061d4d",
+    "imageName": "image_palacio_da_luz",
     "imageDescription": "Na imagem, é representado o Palácio da Luz em um ambiente externo, visto a partir de uma praça arborizada. O edifício histórico, de arquitetura colonial, destaca-se por sua fachada em tom amarelo com detalhes brancos nas molduras das janelas e na cornija, além de uma base revestida em pedra clara. Em frente ao prédio, há uma escultura de leão sobre um pedestal, posicionada próxima à entrada lateral.O espaço ao redor é pavimentado com pedras em padrão irregular, típico de áreas históricas, e conta com postes de iluminação urbana. Uma grande árvore ocupa parte do primeiro plano, projetando sombra sobre o chão e contribuindo para a composição da cena. Ao fundo, edifícios mais altos e modernos contrastam com a construção antiga, evidenciando a convivência entre diferentes períodos da urbanização de Fortaleza.Algumas pessoas aparecem ao longe, caminhando pela área, o que sugere o uso cotidiano do espaço público. A iluminação natural indica um dia ensolarado, com céu azul e poucas nuvens, valorizando as cores vibrantes do prédio e do ambiente urbano ao redor."
   },
   {
@@ -261,7 +260,7 @@ Curiosidade: A construção da catedral levou cerca de 39 anos para ser concluí
     },
     "comodities": ["bathroom", "acessibility"],
     "locationLink": "https://maps.app.goo.gl/wVjKt7oSBvY4s43R7",
-    "imageName": "6a624d65-8ab1-4334-8f9f-dca504370bc2",
+    "imageName": "image_estoril",
     "imageDescription": "Na imagem, é representado o Estoril em um ambiente externo, localizado na região da Praia de Iracema. O edifício apresenta arquitetura de inspiração europeia, com fachada em tons claros, detalhes em azul nas esquadrias e telhado de telhas cerâmicas avermelhadas. Destaca-se a presença de uma torre lateral, que confere ao conjunto um aspecto elegante e histórico.À frente do prédio, há uma ampla área aberta e pavimentada, com bancos de madeira distribuídos ao longo do espaço e algumas palmeiras que reforçam o caráter praiano do local. O ambiente é iluminado por luz natural, sob um céu parcialmente nublado, o que valoriza as cores suaves da construção.O entorno sugere um espaço de convivência e lazer, com poucos elementos urbanos densos ao redor, permitindo que o edifício se sobressaia na paisagem. A composição evidencia o caráter histórico e simbólico do Estoril, associado às transformações culturais e à vida boêmia de Fortaleza ao longo do tempo."
   },
   {
@@ -283,7 +282,7 @@ Curiosidade: A construção da catedral levou cerca de 39 anos para ser concluí
     },
     "comodities": ["bathroom", "acessibility"],
     "locationLink": "https://maps.app.goo.gl/uovzxiUgnpjEQA1A7",
-    "imageName": "1e2b2afe-e273-48a6-83c0-10c7ad0d60d9",
+    "imageName": "image_theatro_jose_de_alencar",
     "imageDescription": "Na imagem, é representado o Theatro José de Alencar, um importante patrimônio cultural da cidade de Fortaleza, visto em um enquadramento de baixo para cima que destaca sua fachada ornamentada. O topo do edifício apresenta um arco com a inscrição “Theatro José de Alencar”, envolto por vitrais coloridos em padrões geométricos e detalhes decorativos em ferro trabalhado, característicos do estilo art nouveau.A estrutura combina elementos metálicos e vidro, evidenciando a influência da engenharia do início do século XX, com iluminação em tons quentes que realça os detalhes arquitetônicos ao entardecer. Observa-se também a presença de colunas e gradis decorativos na parte inferior, compondo um conjunto elegante e histórico. Ao fundo, o céu claro cria um contraste suave com as cores vibrantes dos vitrais, reforçando o caráter artístico e simbólico do teatro como espaço onde a arte e a história da cidade se encontram."
   },
   {
@@ -305,7 +304,7 @@ Curiosidade: A construção da catedral levou cerca de 39 anos para ser concluí
     },
     "comodities": ["none"],
     "locationLink": "https://maps.app.goo.gl/eujJ354vWejB13cV8",
-    "imageName": "7d4fc421-d75d-4a54-a433-8693e16dd1b2",
+    "imageName": "image_praca_do_ferreira",
     "imageDescription": "Na imagem, é representada a Praça do Ferreira, um dos espaços públicos mais tradicionais do centro de Fortaleza, vista em um enquadramento amplo que evidencia sua dinâmica urbana. No centro da praça, destaca-se a Coluna da Hora, um marco simbólico com relógio no topo, cercado por áreas pavimentadas em pedra portuguesa com padrões geométricos em preto e branco.Ao redor, observam-se edifícios comerciais e institucionais, além de árvores frondosas e palmeiras que proporcionam sombra ao ambiente. Pessoas caminham, conversam e ocupam o espaço, reforçando o caráter vivo e cotidiano da praça. A iluminação natural intensa e o céu azul sem nuvens sugerem um dia ensolarado, valorizando as cores e a atmosfera acolhedora do local, que funciona como ponto de encontro e convivência no coração da cidade."
   },
   {
@@ -327,7 +326,7 @@ Curiosidade: A construção da catedral levou cerca de 39 anos para ser concluí
     },
     "comodities": ["bathroom", "acessibility"],
     "locationLink": "https://maps.app.goo.gl/WQcSakgAqYpeVZUo8",
-    "imageName": "2cb58008-fcac-4d17-bf89-cf8c44bc87fc",
+    "imageName": "image_cineteatro_sao_luiz",
     "imageDescription": "Na imagem, é representado o Cineteatro São Luiz, um importante equipamento cultural localizado no centro de Fortaleza, visto em um enquadramento frontal que destaca sua fachada histórica. O edifício apresenta linhas sóbrias e elegantes, com tons claros na parte superior e revestimento mais escuro no térreo, onde se encontram portas de entrada, bilheterias e grades metálicas ornamentadas.No destaque superior, observa-se o letreiro clássico “São Luiz” em estilo cursivo, acompanhado de um painel com letras vermelhas que anunciam “Secult Cineteatro São Luiz – 100 anos do cinema cearense”, reforçando seu papel na preservação e difusão da cultura audiovisual local. Acima, há ainda a identificação do Governo do Estado do Ceará, indicando sua gestão institucional.A composição simétrica da fachada, aliada aos elementos gráficos e arquitetônicos, evidencia o valor histórico e cultural do espaço, enquanto a iluminação natural realça os detalhes e cores do edifício, inserindo-o no cotidiano urbano como um marco da memória e da produção artística cearense."
   },
   {
@@ -349,7 +348,7 @@ Curiosidade: A construção da catedral levou cerca de 39 anos para ser concluí
     },
     "comodities": ["none"],
     "locationLink": "https://maps.app.goo.gl/PT3dV8ntGJo6m59B6",
-    "imageName": "736d97b1-0277-4097-9491-12bee9d1f39f\n3f068db7-9046-4fdb-993b-7e5eda26d2c3",
+    "imageName": "image_chacara_salubre",
     "imageDescription": "Na imagem, vê-se uma antiga construção rural que representa a Chácara Salubre, com paredes amareladas e desgastadas, colunas brancas e telhado de telhas cerâmicas. À frente, um caminho de concreto leva até a entrada, onde há duas cadeiras de plástico, sugerindo uso cotidiano.Uma grande árvore de tronco retorcido domina a cena, projetando sombra sobre o terreno coberto por folhas secas. A luz do sol atravessa a folhagem, criando contrastes e reforçando a atmosfera de memória e passagem do tempo presente no local."
   },
   {
@@ -371,7 +370,7 @@ Curiosidade: A construção da catedral levou cerca de 39 anos para ser concluí
     },
     "comodities": ["none"],
     "locationLink": "https://maps.app.goo.gl/8nEntEJRBMGdmaVw9",
-    "imageName": "47f5a39c-0c84-4b0a-be4c-0d1592bf41d7\n92ecc3a4-5889-4736-87c5-7321ea7389ed",
+    "imageName": "image_palacio_do_placido",
     "imageDescription": ""
   }
 ]

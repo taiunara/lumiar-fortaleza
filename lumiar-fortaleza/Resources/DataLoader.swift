@@ -11,24 +11,7 @@ import MapKit
 
 @MainActor
 class DataLoader {
-    // Função para acessar o Json
-//    func loadPoints() -> [Point]? {
-//        guard let url = Bundle.main.url(forResource: "Points", withExtension: "json"),
-//              let data = try? Data(contentsOf: url) else {
-//            print("Erro ao carregar arquivo JSON")
-//            return nil
-//        }
-//        
-//        do {
-//            let pontos = try JSONDecoder().decode([Point].self, from: data)
-//            return pontos
-//        } catch {
-//            print("Erro ao decodificar JSON: \(error)")
-//            return nil
-//        }
-//    }
-    
-    
+
     static func preloadData(context: ModelContext) {
         // Verificação de duplicados
         let fetchDescriptor = FetchDescriptor<Location>()
@@ -68,6 +51,7 @@ class DataLoader {
                     history: dto.history,
                     category: mappedCategory,
                     neighbourhood: dto.neighbourhood,
+                    imageName: dto.imageName,
                     coordinates: CLLocationCoordinate2D(latitude: dto.latitude, longitude: dto.longitude),
                     comodities: mappedComodities
                 )
@@ -105,6 +89,7 @@ class DataLoader {
                     history: dto.history,
                     category: mappedCategory,
                     neighbourhood: dto.neighbourhood,
+                    imageName: dto.imageName,
                     coordinates: CLLocationCoordinate2D(latitude: dto.latitude, longitude: dto.longitude),
                     comodities: mappedComodities
                 )
@@ -120,3 +105,22 @@ class DataLoader {
     }
     
 }
+
+
+//* Função para acessar o Json
+//    func loadPoints() -> [Point]? {
+//        guard let url = Bundle.main.url(forResource: "Points", withExtension: "json"),
+//              let data = try? Data(contentsOf: url) else {
+//            print("Erro ao carregar arquivo JSON")
+//            return nil
+//        }
+//
+//        do {
+//            let pontos = try JSONDecoder().decode([Point].self, from: data)
+//            return pontos
+//        } catch {
+//            print("Erro ao decodificar JSON: \(error)")
+//            return nil
+//        }
+//    }
+

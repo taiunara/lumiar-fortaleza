@@ -12,14 +12,13 @@ struct NeighbourhoodListView: View {
     
     @Query private var locations: [Location]
     var bairros: [String] {
-        // Pega apenas a string 'neighbourhood' de todos os locais
         let todosBairros = locations.map { $0.neighbourhood }
-        // Transforma em 'Set' para remover nomes repetidos
         let bairrosUnicos = Set(todosBairros)
-        // Devolve como uma lista Array ordenada de A a Z
         return Array(bairrosUnicos).sorted()
     }
     let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    
+    
     
     var body: some View {
         NavigationStack {
@@ -34,7 +33,7 @@ struct NeighbourhoodListView: View {
                         Section {
                             ForEach(bairrosComLetra, id: \.self) { bairro in
                                 // Futuramente você pode passar a variável 'bairro' para a tela seguinte
-                                NavigationLink(destination: NeighbourhoodExtendedView()) {
+                                NavigationLink(destination: NeighbourhoodExtendedView(neighborhood: bairro)) {
                                     Text(bairro)
                                 }
                             }

@@ -42,7 +42,7 @@ struct LocationContentSheetView: View {
                 }
                 
                 HStack(alignment: .center, spacing: 10){
-                    CarouselView()
+                    CarouselView(location: location)
                     
                 }
                 .frame( minHeight: 150, maxHeight: 150 , alignment: .leading)
@@ -121,23 +121,18 @@ struct LocationContentSheetView: View {
 
 #Preview {
     do {
-        // 1. Cria um banco de dados temporário para o Preview
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Location.self, configurations: config)
         
-        // 2. Mandamos o DataLoader ler o JSON real e injetar nesse banco temporário
         DataLoader.preloadData(context: container.mainContext)
         
-        // 3. Agora buscamos o primeiro local que o DataLoader acabou de salvar
         let fetchDescriptor = FetchDescriptor<Location>()
         let locaisSalvos = try container.mainContext.fetch(fetchDescriptor)
         
-        // 4. Pegamos o primeiro local da lista
         guard let primeiroLocalDoJson = locaisSalvos.first else {
             return AnyView(Text("Nenhum local encontrado no JSON.")) // AnyView resolve conflito de tipo no preview
         }
         
-        // 5. Desenhamos a sua tela passando os dados reais que vieram do JSON!
         return AnyView(
             LocationContentSheetView(location: primeiroLocalDoJson)
                 .modelContainer(container)

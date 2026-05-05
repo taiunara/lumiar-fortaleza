@@ -64,7 +64,7 @@ struct MapView: View {
                                     }
                                     
                                 }) {
-                                    Image(.imageTest1)
+                                    Image(marker.imageName)
                                         .resizable()
                                         .frame(width: 40, height: 40)
                                         .cornerRadius(50)

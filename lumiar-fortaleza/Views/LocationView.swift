@@ -24,7 +24,7 @@ struct LocationView: View {
                 VStack(alignment: .center , spacing: 15) {
                     
                     HStack(alignment: .center, spacing: 10){
-                        CarouselView()
+                        CarouselView(location: location)
                         
                     }
                     .frame( minHeight: 150, maxHeight: 150 , alignment: .leading)
