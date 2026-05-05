@@ -6,27 +6,30 @@
 //
 
 import SwiftUI
+import SwiftData
+import MapKit
 
 struct LocationView: View {
+    
+    
+    var location: Location
+    
     var body: some View {
+        
         @Environment(\.dismiss) var dismiss
         @Environment(\.openURL) var openURL
-
+        
         NavigationStack {
-            ScrollView{
+            VStack{
                 VStack(alignment: .center , spacing: 15) {
                     
-                    // TODO: Carrosel de fotos
                     HStack(alignment: .center, spacing: 10){
-                        Image(.imageTest1)
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(15)
-                            .clipped()
+                        CarouselView(location: location)
+                        
                     }
-                    .frame(maxHeight: .infinity, alignment: .leading)
+                    .frame( minHeight: 150, maxHeight: 150 , alignment: .leading)
                     .cornerRadius(15)
-                    .navigationTitle(location1.name)
+                    .navigationTitle(location.name)
                     
                     VStack {
                         
@@ -41,12 +44,12 @@ struct LocationView: View {
                         
                     }
                     
-                    // Titulo e texto
-                    Text(location1.title)
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    Text(location1.history)
-                    
+                    ScrollView{// Titulo e texto
+                        Text(location.title)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                        Text(location.history)
+                    }
                 }
             }
             .padding(0)
@@ -58,5 +61,4 @@ struct LocationView: View {
 
 
 #Preview {
-    LocationView()
 }

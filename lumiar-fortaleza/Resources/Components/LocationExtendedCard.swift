@@ -23,7 +23,7 @@ struct LocationExtendedCard: View {
                 .frame(width: .infinity)
                 .frame(height: 180)
                 .overlay {
-                    Image(.imageTest1)
+                    Image(location.imageName)
                         .resizable()
                         .scaledToFill()
                 }
@@ -49,10 +49,10 @@ struct LocationExtendedCard: View {
     }
 }
 
-struct LocationExtendedCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        LocationExtendedCard(location: location2)
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct LocationExtendedCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LocationExtendedCard(location: location2)
+//            .previewLayout(.sizeThatFits)
+//    }
+//}
 
