@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IndexedSections: View {
+struct NeighbourhoodListView: View {
     
     @State private var pontos: [Point] = []
     
@@ -41,6 +41,7 @@ struct IndexedSections: View {
                 }
                 .padding()
             }
+            .navigationTitle("Bairros")
             .onAppear {
                 pontos = loadPoints() ?? []
             }
@@ -52,5 +53,5 @@ struct IndexedSections: View {
     
 
     #Preview {
-        IndexedSections()
+        NeighbourhoodListView()
     }
