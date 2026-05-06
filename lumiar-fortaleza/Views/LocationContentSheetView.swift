@@ -17,7 +17,8 @@ struct LocationContentSheetView: View {
     
     var body: some View {
         
-        NavigationStack {
+//        NavigationStack {
+        VStack {
             VStack(alignment: .leading) {
                 
                 HStack{

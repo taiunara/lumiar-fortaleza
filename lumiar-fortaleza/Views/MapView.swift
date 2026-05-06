@@ -100,21 +100,19 @@ struct MapView: View {
                     MapUserLocationButton()
                     MapScaleView()
                 }
-                .onChange(of: currentPresentationDetent) {
-                    if currentPresentationDetent == .fraction(0.1) {
-                        selected = nil
-                    }
-                }
                 .sheet(isPresented: $isPresented) {
                     let content = HStack {
                         if let selected {
-                            LocationContentSheetView(location: selected)
+                            NavigationStack{
+                                LocationContentSheetView(location: selected)
+                            }
                         } else {
                             // TODO: ajustar para ir para página do local e quando sair ele sair para o normal da sheet
                             
                             ExploreContentSheetView(
                                 searchText: $searchText,
-                                isSearching: $isSearching
+                                isSearching: $isSearching,
+                                presentationDetents: $currentPresentationDetent
                             )
                             .padding(.top, currentPresentationDetent == .fraction(0.1) ? 12 : 0)
                             .searchable(
@@ -158,7 +156,6 @@ struct MapView: View {
             }
             .onChange(of: isSearching, { _, newValue in
                 if (isSearching) {
-                    print("Ta pesquisando")
                     currentPresentationDetent = .medium
                 }
             })
@@ -173,9 +170,6 @@ struct MapView: View {
             })
             
         }
-        .onChange(of: markers, { _, _ in
-            print("Markers no SwiftData: \(markers.count)")
-        })
         .onAppear {
             if markers.isEmpty {
                 let locations = DataLoader.preloadDataV2()

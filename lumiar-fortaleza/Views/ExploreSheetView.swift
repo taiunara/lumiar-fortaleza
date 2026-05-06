@@ -20,6 +20,10 @@ struct ExploreContentSheetView: View {
     
     @Binding var isSearching: Bool
     
+    @Binding var presentationDetents: PresentationDetent
+    
+    @State private var path: NavigationPath = NavigationPath()
+    
     var sugestion: Location? {
         locations.randomElement()
     }
@@ -49,9 +53,10 @@ struct ExploreContentSheetView: View {
                 
                 
             }
-            
-            
-            NavigationLink(destination: LocationContentSheetView(location: location)) {
+                        
+            NavigationLink(
+                value: location
+            ) {
                 VStack {
                     HStack {
                         Text(location.name)
@@ -70,6 +75,25 @@ struct ExploreContentSheetView: View {
                     }
                 }
             }
+//            NavigationLink(destination: LocationContentSheetView(location: location)) {
+//                VStack {
+//                    HStack {
+//                        Text(location.name)
+//                        Spacer()
+//                    }
+//                    HStack {
+//                        Label {
+//                            // TODO: No futuro, você pode calcular a distância real aqui
+//                            Text(location.neighbourhood)
+//                                .foregroundStyle(.gray)
+//                        } icon: {
+//                            Image(systemName: "location.fill")
+//                                .foregroundStyle(.gray)
+//                        }
+//                        Spacer()
+//                    }
+//                }
+//            }
             
         }
     }
@@ -81,7 +105,7 @@ struct ExploreContentSheetView: View {
     }
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             List {
                 if isSearching {
                     ForEach(locationList) { location in
@@ -306,6 +330,15 @@ struct ExploreContentSheetView: View {
 //                    .frame(height: 40)}
                 
             }
+            .navigationDestination(for: Location.self) { location  in
+                LocationContentSheetView(location: location)
+            }
+            .onChange(of: presentationDetents) { oldValue, newValue in
+                if newValue == .fraction(0.1) {
+                    isSearching = false
+                    path = NavigationPath()
+                }
+            }
         }
     }
 }
@@ -313,6 +346,7 @@ struct ExploreContentSheetView: View {
 #Preview {
     @Previewable @State var searchText: String = ""
     @Previewable @State var isSearching: Bool = false
+    @Previewable @State var presentationDetents: PresentationDetent = .large
     
-    ExploreContentSheetView(searchText: $searchText, isSearching: $isSearching)
+    ExploreContentSheetView(searchText: $searchText, isSearching: $isSearching, presentationDetents: $presentationDetents)
 }
