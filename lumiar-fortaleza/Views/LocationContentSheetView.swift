@@ -85,38 +85,11 @@ struct LocationContentSheetView: View {
                     
                 }
             }
-//            .onAppear {
-//                points = loadPoints() ?? []
-//                location = preloadData() 
-//            }
-            
-            //Componente Comodidades
+
             Spacer()
         }
     }
 }
-
- //Função para acessar o Json
-//func loadPoints() -> [Point]? {
-//    guard let url = Bundle.main.url(forResource: "Points", withExtension: "json"),
-//          let data = try? Data(contentsOf: url) else {
-//        print("Erro ao carregar arquivo JSON")
-//        return nil
-//    }
-//    
-//    do {
-//        let pontos = try JSONDecoder().decode([Point].self, from: data)
-//        return pontos
-//    } catch {
-//        print("Erro ao decodificar JSON: \(error)")
-//        return nil
-//    }
-//}
-
-//func encontrarLocal(pelo id: UUID) {
-//    let localDesejado = locations.first(where: { $0.id == id })
-//    // faz algo com o localDesejado
-//}
 
 
 #Preview {
