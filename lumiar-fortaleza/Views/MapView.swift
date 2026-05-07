@@ -14,13 +14,21 @@ struct MapView: View {
     @Environment(\.modelContext) var modelContext
     
     @Namespace var mapScope
-    
+  
+    @Query private var locations: [Location]
+
     @State private var isPresented: Bool = true
     
     @State private var selected: Location?
+        
+    @State var searchResults: [Location] = []
     
     @State private var searchText: String = ""
     
+    @State private var presentingSearchBottomBar: Bool = true
+    @State private var isSearching: Bool = false
+    
+
     //    @State private var route = MKRoute?
     
     @State var currentPresentationDetent: PresentationDetent = .fraction(0.1)
@@ -33,6 +41,12 @@ struct MapView: View {
     )
     
     @Query var markers: [Location]
+    
+//    * Configuração para barra de pesquisa*
+//    var isSearching: Bool {
+//        return !searchText.isEmpty
+//    }
+
     
     let cameraPosition: MapCameraPosition = .region(.init(center: .init(latitude: -3.763, longitude: -38.5267), latitudinalMeters: 20000, longitudinalMeters: 20000))
     
@@ -86,26 +100,44 @@ struct MapView: View {
                     MapUserLocationButton()
                     MapScaleView()
                 }
-                .onChange(of: currentPresentationDetent) {
-                    if currentPresentationDetent == .fraction(0.1) {
-                        selected = nil
-                    }
-                }
                 .sheet(isPresented: $isPresented) {
-                    HStack {
+                    let content = HStack {
                         if let selected {
-                            LocationContentSheetView(location: selected)
+                            NavigationStack{
+                                LocationContentSheetView(location: selected)
+                            }
                         } else {
                             // TODO: ajustar para ir para página do local e quando sair ele sair para o normal da sheet
                             
-                            ExploreContentSheetView()
+                            ExploreContentSheetView(
+                                searchText: $searchText,
+                                isSearching: $isSearching,
+                                presentationDetents: $currentPresentationDetent
+                            )
+                            .padding(.top, currentPresentationDetent == .fraction(0.1) ? 12 : 0)
+                            .searchable(
+                                text: $searchText,
+                                isPresented: $isSearching,
+                                placement: .toolbarPrincipal,
+                                prompt: "Buscar pontos"
+                            )
                         }
                     }
-                    .padding(.top, 10)
-                    .searchable(text: $searchText, placement: .toolbarPrincipal, prompt: "Buscar pontos")
-                    .presentationDetents([.fraction(0.1), .medium, .large], selection: $currentPresentationDetent)
+
+                    
+                    ZStack {
+                        content
+                    }
+                    .presentationDetents(
+                        [.fraction(0.1), .medium, .large],
+                        selection: $currentPresentationDetent
+                    )
                     .interactiveDismissDisabled(true)
-                    .presentationBackgroundInteraction(.enabled(upThrough: .medium))
+                    .presentationBackgroundInteraction(
+                        .enabled(
+                            upThrough: .medium
+                        )
+                    )
                 }
                 .mapStyle(.standard(elevation: .realistic))
 //                .ignoresSafeArea()
@@ -122,19 +154,22 @@ struct MapView: View {
                 .offset(x: 150, y: 250)
                 
             }
+            .onChange(of: isSearching, { _, newValue in
+                if (isSearching) {
+                    currentPresentationDetent = .medium
+                }
+            })
             .onChange(of: currentPresentationDetent, { _, newValue in
-                print("Caiu aqui!")
-                print(newValue)
-                print(newValue == .fraction(0.1))
                 if newValue == .fraction(0.1) {
                     selected = nil
+                    isSearching = false
+                    presentingSearchBottomBar = true
+                } else {
+                    presentingSearchBottomBar = false
                 }
             })
             
         }
-        .onChange(of: markers, { _, _ in
-            print("Markers no SwiftData: \(markers.count)")
-        })
         .onAppear {
             if markers.isEmpty {
                 let locations = DataLoader.preloadDataV2()

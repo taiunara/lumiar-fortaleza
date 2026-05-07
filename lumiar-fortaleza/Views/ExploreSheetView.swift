@@ -9,57 +9,119 @@ import Foundation
 import SwiftData
 import SwiftUI
 
+
 struct ExploreContentSheetView: View {
-    
+        
     @State private var isExpanded: Bool = false
     
     @Query private var locations: [Location]
     
-    var body: some View {
-        
-        NavigationStack {
-            List {
+    @Binding var searchText: String
+    
+    @Binding var isSearching: Bool
+    
+    @Binding var presentationDetents: PresentationDetent
+    
+    @State private var path: NavigationPath = NavigationPath()
+    
+    var sugestion: Location? {
+        locations.randomElement()
+    }
+    
+    var locationList: [Location] {
+        if searchText.isEmpty {
+            return locations
+        } else {
+            return locations.filter { location in
+                location.name.localizedStandardContains(searchText) ||
+                location.category.displayName.localizedStandardContains(searchText) ||
+                location.neighbourhood.localizedStandardContains(searchText)
+            }
+        }
+    }
+    
+    func createLocationCard(for location: Location) -> some View {
+        HStack {
+            ZStack {
+                Circle()
+                    .foregroundStyle(location.category.iconColor)
+                    .frame(width: 40, height: 40)
+                
+                Image(systemName: location.category.iconSymbol)
+                    .font(.headline)
+                    .foregroundStyle(.white)
                 
                 
-                if let sugestion = locations.randomElement() {
-                    
-                    Section("Sugestão do dia") {
-                        HStack {
-                            ZStack {
-                                Circle()
-                                    .foregroundStyle(sugestion.category.iconColor)
-                                    .frame(width: 40, height: 40)
-                                
-                                Image(systemName: sugestion.category.iconSymbol)
-                                    .font(.headline)
-                                    .foregroundStyle(.white)
-                            }
-                            
-                            NavigationLink(destination: LocationView(location: sugestion)) {
-                                VStack {
-                                    HStack {
-                                        Text(sugestion.name)
-                                        Spacer()
-                                    }
-                                    HStack {
-                                        Label {
-                                            Text("1.5km") // No futuro, você pode calcular a distância real aqui
-                                                .foregroundStyle(.gray)
-                                        } icon: {
-                                            Image(systemName: "location.fill")
-                                                .foregroundStyle(.gray)
-                                        }
-                                        Spacer()
-                                    }
-                                }
-                            }
+            }
+                        
+            NavigationLink(
+                value: location
+            ) {
+                VStack {
+                    HStack {
+                        Text(location.name)
+                        Spacer()
+                    }
+                    HStack {
+                        Label {
+                            // TODO: No futuro, você pode calcular a distância real aqui
+                            Text(location.neighbourhood)
+                                .foregroundStyle(.gray)
+                        } icon: {
+                            Image(systemName: "location.fill")
+                                .foregroundStyle(.gray)
                         }
+                        Spacer()
+                    }
+                }
+            }
+//            NavigationLink(destination: LocationContentSheetView(location: location)) {
+//                VStack {
+//                    HStack {
+//                        Text(location.name)
+//                        Spacer()
+//                    }
+//                    HStack {
+//                        Label {
+//                            // TODO: No futuro, você pode calcular a distância real aqui
+//                            Text(location.neighbourhood)
+//                                .foregroundStyle(.gray)
+//                        } icon: {
+//                            Image(systemName: "location.fill")
+//                                .foregroundStyle(.gray)
+//                        }
+//                        Spacer()
+//                    }
+//                }
+//            }
+            
+        }
+    }
+    
+    var dailySuggestion: some View {
+        Section("Sugestão do dia") {
+            createLocationCard(for: sugestion!)
+        }
+    }
+    
+    var body: some View {
+        NavigationStack(path: $path) {
+            List {
+                if isSearching {
+                    ForEach(locationList) { location in
+                        createLocationCard(for: location)
                     }
                 } else {
-                    // Caso o banco de dados ainda esteja carregando
-                    Text("Carregando sugestões...")
-                        .foregroundStyle(.gray)
+                    if let sugestion {
+                        dailySuggestion
+                    } else {
+                        // Caso o banco de dados ainda esteja carregando
+                        Text("Carregando sugestões...")
+                            .foregroundStyle(.gray)
+                    }
                 }
+                
+                
                 
 //                Section("Próximos a você") {
 //                    
@@ -268,10 +330,23 @@ struct ExploreContentSheetView: View {
 //                    .frame(height: 40)}
                 
             }
+            .navigationDestination(for: Location.self) { location  in
+                LocationContentSheetView(location: location)
+            }
+            .onChange(of: presentationDetents) { oldValue, newValue in
+                if newValue == .fraction(0.1) {
+                    isSearching = false
+                    path = NavigationPath()
+                }
+            }
         }
     }
 }
 
 #Preview {
-    ExploreContentSheetView()
+    @Previewable @State var searchText: String = ""
+    @Previewable @State var isSearching: Bool = false
+    @Previewable @State var presentationDetents: PresentationDetent = .large
+    
+    ExploreContentSheetView(searchText: $searchText, isSearching: $isSearching, presentationDetents: $presentationDetents)
 }

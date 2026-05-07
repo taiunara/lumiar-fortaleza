@@ -13,7 +13,7 @@ struct RoutesButtonView: View {
     
     var body: some View {
         Button(action: {
-            openURL(URL(string: "https://maps.apple/r/SM-ydEP-2XIi02")!)
+            openURL(URL(string: "https://maps.apple.com")!)
         }) {
             VStack(alignment: .center, spacing: 0) {
                 Image(systemName: "arrow.trianglehead.turn.up.right.diamond.fill")
