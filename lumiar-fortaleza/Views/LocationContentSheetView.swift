@@ -79,7 +79,7 @@ struct LocationContentSheetView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
                 ToolbarItem(placement: .principal) {
-                    VStack{
+                    VStack (alignment: .leading){
                         Text(location.name).foregroundStyle(Color.black)
                         Text(location.category.displayName).foregroundStyle(Color.gray)
                     }
