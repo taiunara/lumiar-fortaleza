@@ -12,6 +12,7 @@ struct LocationDTO: Codable {
     let name            : String
     let address         : String
     let category        : String
+    let subtitle        : String
     let history         : String
     let comodities      : [String]
     let locationLink    : String

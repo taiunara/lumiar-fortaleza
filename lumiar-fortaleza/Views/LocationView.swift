@@ -44,12 +44,20 @@ struct LocationView: View {
                         
                     }
                     
-                    ScrollView{// Titulo e texto
-                        Text(location.title)
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                        Text(location.history)
+                    ScrollView{ // Titulo e texto
+                        VStack(alignment: .leading, spacing: 10) {
+                            
+                            Text(location.subtitle)
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                                .multilineTextAlignment(.leading) // Garante que quebras de linha fiquem na esquerda
+                            
+                            Text(location.history)
+                                .multilineTextAlignment(.leading)
+                            
+                        }
                     }
+                    
                 }
             }
             .padding(0)
@@ -61,4 +69,19 @@ struct LocationView: View {
 
 
 #Preview {
+    let location1 = Location(
+        name: "Theatro José de Alencar",
+        title: "Theatro José de Alencar",
+        subtitle: "Um palco onde a arte constrói a história da cidade",
+        address: "R. Liberato Barroso, 525 - Centro",
+        history: "Inaugurado em 1910, o Theatro José de Alencar é um dos principais patrimônios culturais de Fortaleza o Theatro José de Alencar é um dos principais patrimônios culturais de Fortaleza o Theatro José de Alencar é um dos principais patrimônios culturais de Fortaleza o Theatro José de Alencar é um dos principais patrimônios culturais de Fortaleza o Theatro José de Alencar é um dos principais patrimônios culturais de Fortaleza ...",
+        category: .theater,
+        neighbourhood: "Centro",
+        imageName: "image_theatro_jose_de_alencar",
+        coordinates: CLLocationCoordinate2D(latitude: -3.727480, longitude: -38.531670),
+        comodities: [.bathroom, .acessibility] // Lista de enums
+    )
+    
+    LocationView(location: location1)
+        .modelContainer(for: Location.self, inMemory: true)
 }

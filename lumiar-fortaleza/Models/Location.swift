@@ -16,6 +16,7 @@ class Location {
     
     var name            : String
     var title           : String
+    var subtitle        : String
     var address         : String
     var history         : String
     var category        : LocationType
@@ -25,17 +26,18 @@ class Location {
 //    var visitTimeHour   : Int
     var latitude        : Double
     var longitude       : Double
-    var comodities      : [Comodities]?
+    var comodities      : [Comodities]
     
     var coordinates: CLLocationCoordinate2D{
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
     
-    init(id: UUID = UUID(), name: String, title: String, address: String, history: String, category: LocationType, neighbourhood: String, imageName: String, /*visitTimeMin: Int, visitTimeHour: Int,*/ coordinates: CLLocationCoordinate2D, comodities: [Comodities]) {
+    init(id: UUID = UUID(), name: String, title: String, subtitle: String, address: String, history: String, category: LocationType, neighbourhood: String, imageName: String, /*visitTimeMin: Int, visitTimeHour: Int,*/ coordinates: CLLocationCoordinate2D, comodities: [Comodities]) {
         
         self.id = id
         self.name = name
         self.title = title
+        self.subtitle = subtitle
         self.address = address
         self.history = history
         self.category = category

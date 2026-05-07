@@ -30,10 +30,11 @@ struct LocationExtendedCard: View {
                 .clipped()
             
             // Nome e pequena descrição do local
-            VStack (alignment: .leading, spacing: 10) {
+            VStack (alignment: .leading, spacing: 20) {
                 Text(location.name)
                     .font(.title2)
                     .fontWeight(.semibold)
+                
                 Text(location.title)
             }
             .frame(maxWidth: .infinity, alignment: .leading)

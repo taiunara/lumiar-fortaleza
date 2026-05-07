@@ -70,7 +70,7 @@ struct LocationContentSheetView: View {
                 
                 UsefulInformation(location: location)
                 
-                ComoditiesView()
+                ComoditiesView(location: location)
 
                 
             }

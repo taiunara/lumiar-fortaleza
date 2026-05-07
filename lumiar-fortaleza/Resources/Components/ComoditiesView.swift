@@ -16,7 +16,11 @@ import SwiftUI
 
 struct ComoditiesView: View {
     
-    @State var comodities: [Comodities] = Comodities.allCases
+//    @State var comodities: [Comodities] = []
+    var location: Location
+    var comodities: [Comodities] {
+        location.comodities
+    }
 
     var body: some View {
         

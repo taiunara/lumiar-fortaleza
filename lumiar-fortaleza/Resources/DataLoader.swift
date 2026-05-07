@@ -47,6 +47,7 @@ class DataLoader {
                 let newLocation = Location(
                     name: dto.name,
                     title: dto.name,
+                    subtitle: dto.subtitle,
                     address: dto.address,
                     history: dto.history,
                     category: mappedCategory,
@@ -85,6 +86,7 @@ class DataLoader {
                 let newLocation = Location(
                     name: dto.name,
                     title: dto.name,
+                    subtitle: dto.subtitle,
                     address: dto.address,
                     history: dto.history,
                     category: mappedCategory,
