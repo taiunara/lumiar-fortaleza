@@ -36,7 +36,7 @@ struct LocationView: View {
                         // Botoes de rota e distância
                         HStack(alignment: .center, spacing: 10) {
                             RoutesButtonView(radius: 15)
-                            DistanceInfoView()
+                            DistanceInfoView(location: location)
                             
                             
                         }

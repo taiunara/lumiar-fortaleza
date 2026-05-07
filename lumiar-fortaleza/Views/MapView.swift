@@ -50,6 +50,8 @@ struct MapView: View {
     
     let cameraPosition: MapCameraPosition = .region(.init(center: .init(latitude: -3.763, longitude: -38.5267), latitudinalMeters: 20000, longitudinalMeters: 20000))
     
+    let locationManager = CLLocationManager()
+    
     var body: some View {
         
         NavigationStack{
@@ -92,6 +94,7 @@ struct MapView: View {
                             //            }
                             
                         }
+                        UserAnnotation()
                     }
                     
                 }
@@ -170,7 +173,12 @@ struct MapView: View {
             })
             
         }
+        .onChange(of: locationManager.authorizationStatus, { oldValue, newValue in
+            print("Status Mudou!")
+        })
         .onAppear {
+            locationManagerDidChangeAuthorization(locationManager)
+
             if markers.isEmpty {
                 let locations = DataLoader.preloadDataV2()
                 print(locations.count)
@@ -179,6 +187,7 @@ struct MapView: View {
                 }
             }
         }
+//        .tint(.darkOrange)
     }
     
     func getUserLocation() async -> CLLocationCoordinate2D? {
@@ -208,6 +217,29 @@ struct MapView: View {
             } catch {
                 print("Show error")
             }
+        }
+    }
+    
+
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedWhenInUse:  // Location services are available.
+//            enableLocationFeatures()
+            print("Usuário autorizou")
+            break
+            
+        case .restricted, .denied:  // Location services currently unavailable.
+//            disableLocationFeatures()
+            print("Usuário não autorizou")
+            break
+            
+        case .notDetermined:        // Authorization not determined yet.
+            print("Usuário não definiu nada sobre autorização")
+           manager.requestWhenInUseAuthorization()
+            break
+            
+        default:
+            break
         }
     }
 }

@@ -38,7 +38,7 @@ struct LocationContentSheetView: View {
                     .frame( maxWidth: .infinity, alignment: .center)
                     .cornerRadius(10)
                     
-                    DistanceInfoView()
+                    DistanceInfoView(location: location)
                     
                 }
                 
