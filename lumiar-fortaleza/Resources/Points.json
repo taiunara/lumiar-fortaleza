@@ -65,7 +65,7 @@
     },
     "comodities": ["none"],
     "locationLink": "https://maps.app.goo.gl/WCvSvtq9iR9mBGi57",
-    "imageName": "638ccc42-f891-445a-95bf-5dd828c516cc",
+    "imageName": "image_bosque_rozimar",
     "imageDescription": ""
   },
   {
@@ -389,5 +389,28 @@
     "locationLink": "https://maps.app.goo.gl/8nEntEJRBMGdmaVw9",
     "imageName": "image_palacio_do_placido",
     "imageDescription": ""
-  }
+  },
+  {
+      "neighbourhood": "Praia de Iracema",
+      "name": "Centro Dragão do Mar de Arte e Cultura",
+      "address": "R. Dragão do Mar, 81 - Praia de Iracema, Fortaleza - CE, 60060-390",
+      "category": "touristAttraction",
+      "latitude": -3.721415,
+      "longitude": -38.511674,
+      "subtitle": "O coração pulsante da arte e da cultura cearense",
+      "history": "Inaugurado em 1999, o Centro Dragão do Mar de Arte e Cultura transformou para sempre a paisagem e a vida noturna de Fortaleza. Com seus quase 30 mil metros quadrados, o espaço foi o grande responsável por revitalizar a região da Praia de Iracema, conectando o centro histórico à orla da cidade através de suas famosas passarelas vermelhas.\n\nO nome do complexo é uma justa homenagem a Francisco José do Nascimento, o Chico da Matilde. Ele foi um jangadeiro abolicionista que ficou conhecido como 'Dragão do Mar' por liderar greves no porto de Fortaleza e se recusar a transportar pessoas escravizadas em 1881, um ato heroico que antecipou a abolição no Ceará.\n\nHoje, o complexo é um universo de possibilidades. Ele abriga o Museu da Cultura Cearense, o Museu de Arte Contemporânea, o Planetário Rubens de Azevedo, além de cinemas, teatro e anfiteatro. Com sua arquitetura marcante que mistura o antigo e o moderno, o Dragão do Mar se consolidou não apenas como um polo de arte, mas como o grande ponto de encontro da juventude e dos turistas na capital.\n\nCuriosidade:\nA arquitetura do complexo foi projetada de forma a preservar os antigos casarões do entorno. Em vez de derrubá-los, as novas estruturas e passarelas modernas abraçam os edifícios históricos do século XIX, criando um diálogo perfeito entre o passado e o futuro.",
+      "operatingHours": {
+        "monday": "Fechado",
+        "tuesday": "09:00 - 21:00",
+        "wednesday": "09:00 - 21:00",
+        "thursday": "09:00 - 21:00",
+        "friday": "09:00 - 21:00",
+        "saturday": "09:00 - 21:00",
+        "sunday": "09:00 - 21:00"
+      },
+      "comodities": ["bathroom", "acessibility", "park"],
+      "locationLink": "https://maps.app.goo.gl/dragao_do_mar_exemplo",
+      "imageName": "image_dragao_do_mar_1",
+      "imageDescription": "Na imagem, é representado o Centro Dragão do Mar de Arte e Cultura. Destacam-se as marcantes passarelas metálicas de cor vermelha que cruzam o espaço aéreo do complexo, interligando os blocos. Ao fundo, a cúpula arredondada do Planetário Rubens de Azevedo se ergue sob um céu azul, contrastando com as fachadas de tijolos aparentes e os casarões históricos preservados no nível da rua."
+    }
 ]

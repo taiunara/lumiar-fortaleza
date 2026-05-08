@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 import SwiftUI
+import MapKit
 
 
 struct ExploreContentSheetView: View {
@@ -23,6 +24,10 @@ struct ExploreContentSheetView: View {
     @Binding var presentationDetents: PresentationDetent
     
     @State private var path: NavigationPath = NavigationPath()
+    
+    var userCoordinates: CLLocation? {
+        return CLLocationManager().location
+    }
     
     var sugestion: Location? {
         locations.randomElement()
@@ -65,7 +70,19 @@ struct ExploreContentSheetView: View {
                     HStack {
                         Label {
                             // TODO: No futuro, você pode calcular a distância real aqui
-                            Text(location.neighbourhood)
+                            var userDistance: String {
+                                guard let userLoc = userCoordinates else {
+                                    return "--"
+                                }
+                                
+                                let distanceInMeters = userLoc.distance(from: locationCoordinates)
+                                let distanceInKm = distanceInMeters / 1000
+                                
+                                return String(format: "%.1fkm", distanceInKm)
+                            }
+                            
+                            var locationCoordinates = CLLocation(latitude: location.latitude, longitude: location.longitude)
+                            Text(userDistance)
                                 .foregroundStyle(.gray)
                         } icon: {
                             Image(systemName: "location.fill")

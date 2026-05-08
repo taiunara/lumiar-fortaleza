@@ -68,7 +68,8 @@ struct LocationContentSheetView: View {
                 }
 //  View de informações úteis
                 
-                UsefulInformation(location: location)
+//                UsefulInformation(location: location)
+                Spacer()
                 
                 ComoditiesView(location: location)
 

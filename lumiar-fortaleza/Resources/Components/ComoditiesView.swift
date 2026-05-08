@@ -30,7 +30,7 @@ struct ComoditiesView: View {
                 ForEach(comodities
                 ){ comodities in
                     Label {
-                        Text(comodities.rawValue)
+                        Text(comodities.displayName)
                     } icon: {
                         comodities.imageName
                     }.labelIconToTitleSpacing(10)

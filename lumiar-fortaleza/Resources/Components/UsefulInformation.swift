@@ -16,7 +16,7 @@ struct UsefulInformation: View {
     var body: some View {
         
         VStack(alignment: .leading, spacing: 5) {
-            Text("Informacoes úteis").font(.title).fontWeight(.medium)
+            Text("Informações úteis").font(.title).fontWeight(.medium)
         
             HStack{
                 Label {
